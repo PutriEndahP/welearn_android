@@ -7,18 +7,15 @@
     android:orientation="vertical"
     tools:context=".Activity.RegisterActivity"
     android:background="@color/colorBG">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:background="@color/colorBG"
             android:scaleType="centerCrop">
-
             <TextView
                 android:id="@+id/judul"
                 android:layout_width="match_parent"
@@ -214,12 +211,12 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="10dp"
-                android:id="@+id/btn_login"
+                android:id="@+id/btn_register"
                 app:cardBackgroundColor="@color/colorPrimary">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Login"
+                    android:text="Register"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:textColor="@android:color/white"
@@ -230,5 +227,4 @@
         </LinearLayout>
     </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

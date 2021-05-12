@@ -126,7 +126,6 @@
                     android:gravity="center_vertical"
                     android:text="Belum punya akun? "
                     android:textSize="15sp"/>
-
                 <TextView
                     android:id="@+id/register"
                     android:layout_height="35dp"

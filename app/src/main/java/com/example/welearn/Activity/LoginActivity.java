@@ -16,7 +16,7 @@ import com.example.welearn.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextView title;
+    TextView title, textView, textRegister;
     CardView cardView, cardView1, cardView2;
     EditText username, password;
 //    Button btnLogin;
@@ -25,6 +25,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         title = (TextView)findViewById(R.id.judul);
+        textView = (TextView)findViewById(R.id.textView);
+        textRegister = (TextView)findViewById(R.id.register);
+        textRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent j = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(j);
+            }
+        });
         username = (EditText)findViewById(R.id.login_username);
         password = (EditText)findViewById(R.id.login_password);
         cardView = (CardView)findViewById(R.id.card_username);

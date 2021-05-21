@@ -31,8 +31,8 @@ public class ProfileActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent j = new Intent(ProfileActivity.this, LoginActivity.class);
-                startActivity(j);
+                Intent i = new Intent(ProfileActivity.this, LoginActivity.class);
+                startActivity(i);
             }
         });
         card_nmProfile = (CardView) findViewById(R.id.card_nmProfile);

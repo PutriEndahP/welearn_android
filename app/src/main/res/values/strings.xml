@@ -16,4 +16,8 @@
     <string name="level">Level ke :</string>
     <string name="soal">Soal ke</string>
     <string name="soalhuruf">soalnya</string>
+    <string name="button_back_desc"></string>
+    <string name="pict_lion_desc"></string>
+    <string name="button_reset_desc"></string>
+    <string name="button_send_desc"></string>
 </resources>

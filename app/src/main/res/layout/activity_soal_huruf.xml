@@ -19,14 +19,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp">
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginStart="30dp"
                     android:src="@drawable/previous"
+                    android:layout_gravity="center"
                     android:id="@+id/btn_back"
-                    android:layout_marginLeft="30dp">
-                </com.google.android.material.imageview.ShapeableImageView>
+                    android:layout_marginLeft="30dp"
+                    android:contentDescription="@string/button_back_desc">
+                </ImageView>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -35,13 +37,12 @@
                     android:textStyle="bold"
                     android:gravity="center_horizontal"
                     android:layout_marginEnd="65dp"
-                    android:textSize="37sp"
+                    android:textSize="35sp"
                     android:textColor="@color/colorPrimary"
                     android:layout_marginRight="65dp">
                 </TextView>
             </LinearLayout>
         </RelativeLayout>
-        <Line
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
@@ -76,19 +77,24 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:layout_marginLeft="40dp"
+                        android:layout_marginStart="40dp"
                         android:src="@drawable/lion"
-                        android:id="@+id/sound">
+                        android:id="@+id/pict_lion"
+                        android:contentDescription="@string/pict_lion_desc">
                     </ImageView>
                     <androidx.cardview.widget.CardView
                         android:layout_width="280dp"
                         android:layout_height="60dp"
                         android:orientation="vertical"
+                        android:id="@+id/sound"
                         app:cardBackgroundColor="@color/colorSecond"
                         app:cardCornerRadius="20dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp">
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
+                            android:layout_marginStart="20dp"
                             android:layout_marginLeft="20dp"
                             android:src="@drawable/volume"
                             android:layout_marginTop="25dp"
@@ -100,28 +106,49 @@
                             android:text="@string/soalhuruf"
                             android:id="@+id/soalnya"
                             android:textStyle="bold"
-                            android:layout_gravity="center"
-                            android:textSize="30dp"
+                            android:layout_gravity="center|center_horizontal"
+                            android:textSize="40sp"
                             android:textColor="@android:color/holo_red_dark">
                         </TextView>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
             </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/huruf_pad_container"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                >
-                <com.williamww.silkysignature.views.SignaturePad
-                    android:id="@+id/huruf_pad"
-                    android:layout_width="match_parent"
-                    android:layout_height="470dp"
-                    app:penColor="@android:color/black">
-                </com.williamww.silkysignature.views.SignaturePad>
-            </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.williamww.silkysignature.views.SignaturePad
+                    android:id="@+id/huruf_pad"
+                    android:layout_height="495dp"
+                    android:layout_width="match_parent">
+                </com.williamww.silkysignature.views.SignaturePad>
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+            <ImageButton
+                android:layout_width="205dp"
                 android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/reset"
+                android:background="@color/colorButton"
+                android:id="@+id/button_reset"
+                android:contentDescription="@string/button_reset_desc">
+            </ImageButton>
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/check"
+                android:id="@+id/button_send"
+                android:background="@color/tosca"
+                android:contentDescription="@string/button_send_desc">
+            </ImageButton>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -8,14 +8,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
-<<<<<<< Updated upstream
     </style>
-=======
-        <item name="colorControlHighlight">@color/colorButton</item>
->>>>>>> Stashed changes
-
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">18sp</item>
-    </style>
+<!--        <item name="colorControlHighlight">@color/colorButton</item>-->
 
 </resources>

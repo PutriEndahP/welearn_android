@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Activity.SoalHurufActivity"></activity>
-        <activity android:name=".Activity.MenuBelajarActivity"></activity>
+        <activity android:name=".Activity.Profile"></activity>
+        <activity android:name=".Activity.LayoutAngka1" />
+        <activity android:name=".Activity.LayoutAngka" />
+        <activity android:name=".Activity.SoalHurufActivity" />
+        <activity android:name=".Activity.MenuBelajarActivity" />
         <activity android:name=".Activity.RegisterActivity" />
         <activity android:name=".MainActivity" /> <!-- <activity -->
         <!-- android:name=".ui.login.LoginActivity" -->

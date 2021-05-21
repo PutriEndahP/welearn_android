@@ -22,20 +22,22 @@
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
                     android:src="@drawable/previous"
-                    android:id="@+id/btn_back">
+                    android:id="@+id/btn_back"
+                    android:layout_marginLeft="30dp">
                 </com.google.android.material.imageview.ShapeableImageView>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Level ke :"
+                    android:text="@string/level"
                     android:id="@+id/judul_level"
                     android:textStyle="bold"
                     android:gravity="center_horizontal"
-                    android:layout_marginRight="65dp"
+                    android:layout_marginEnd="65dp"
                     android:textSize="37sp"
-                    android:textColor="@color/colorPrimary">
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginRight="65dp">
                 </TextView>
             </LinearLayout>
         </RelativeLayout>
@@ -53,11 +55,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Soal ke"
+                    android:text="@string/soal"
                     android:id="@+id/soal"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:textColor="@android:color/black">
                 </TextView>
             </LinearLayout>
@@ -67,7 +69,7 @@
                 android:scaleType="centerCrop">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp">
                     <ImageView
@@ -95,7 +97,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Soalnya"
+                            android:text="@string/soalhuruf"
                             android:id="@+id/soalnya"
                             android:textStyle="bold"
                             android:layout_gravity="center"
@@ -109,7 +111,7 @@
                 android:id="@+id/huruf_pad_container"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_above="@+id/buttons_container">
+                >
                 <com.williamww.silkysignature.views.SignaturePad
                     android:id="@+id/huruf_pad"
                     android:layout_width="match_parent"
@@ -118,8 +120,8 @@
                 </com.williamww.silkysignature.views.SignaturePad>
             </RelativeLayout>
             <LinearLayout
-
-            </LinearLayout>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

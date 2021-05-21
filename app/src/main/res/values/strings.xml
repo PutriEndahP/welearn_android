@@ -15,4 +15,7 @@
     <string name="nama">Nama</string>
     <string name="score">Score</string>
     <string name="logout">Logout</string>
+    <string name="level">Level ke :</string>
+    <string name="soal">Soal ke</string>
+    <string name="soalhuruf">soalnya</string>
 </resources>

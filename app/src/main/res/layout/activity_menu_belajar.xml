@@ -115,6 +115,42 @@
 
             </androidx.cardview.widget.CardView>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:background="#FFD9A4"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp">
+
+            <ImageView
+                android:id="@+id/btn_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                tools:srcCompat="@drawable/home" />
+
+            <ImageView
+                android:id="@+id/btn_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                tools:srcCompat="@drawable/score" />
+
+            <ImageView
+                android:id="@+id/btn_akun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                tools:srcCompat="@drawable/user" />
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </RelativeLayout>

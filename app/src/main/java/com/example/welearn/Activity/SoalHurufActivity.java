@@ -30,7 +30,7 @@ public class SoalHurufActivity extends AppCompatActivity {
         ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent j = new Intent(SoalHurufActivity.this, MainActivity.class);
+                Intent j = new Intent(SoalHurufActivity.this, ProfileActivity.class);
                 startActivity(j);
             }
         });

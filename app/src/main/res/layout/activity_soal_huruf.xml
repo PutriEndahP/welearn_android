@@ -118,12 +118,15 @@
             android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="5dp">
+
                 <com.williamww.silkysignature.views.SignaturePad
                     android:id="@+id/huruf_pad"
-                    android:layout_height="495dp"
-                    android:layout_width="match_parent">
-                </com.williamww.silkysignature.views.SignaturePad>
+                    android:layout_width="379dp"
+                    android:layout_height="500dp"
+                    android:background="#FFFFFF"></com.williamww.silkysignature.views.SignaturePad>
             </LinearLayout>
         </RelativeLayout>
         <LinearLayout

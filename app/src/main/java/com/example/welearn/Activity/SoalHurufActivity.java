@@ -16,11 +16,10 @@ import com.williamww.silkysignature.views.SignaturePad;
 
 public class SoalHurufActivity extends AppCompatActivity {
 
-    ImageView ImageView, ImageLion, ImageSound;
+    ImageView ImageView, ImageSound, reset, send;
     TextView judul, soal, textSoal;
-    CardView cardView;
+    CardView cardSoal, btn_reset, btn_send;
     SignaturePad hurufPad;
-    ImageButton btn_reset, btn_send;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +33,16 @@ public class SoalHurufActivity extends AppCompatActivity {
                 startActivity(j);
             }
         });
-        ImageLion = (ImageView)findViewById(R.id.pict_lion);
         ImageSound = (ImageView)findViewById(R.id.btn_sound);
         judul = (TextView)findViewById(R.id.judul_level);
         soal = (TextView)findViewById(R.id.soal);
         textSoal = (TextView)findViewById(R.id.soalnya);
-        cardView = (CardView)findViewById(R.id.sound);
+        cardSoal = (CardView)findViewById(R.id.card_soal);
         hurufPad = (SignaturePad)findViewById(R.id.huruf_pad);
-        btn_reset = (ImageButton)findViewById(R.id.button_reset);
-        btn_send = (ImageButton)findViewById(R.id.button_send);
+        btn_reset = (CardView)findViewById(R.id.button_reset);
+        reset = (ImageView)findViewById(R.id.reset);
+        send = (ImageView)findViewById(R.id.send);
+        btn_send = (CardView)findViewById(R.id.button_send);
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

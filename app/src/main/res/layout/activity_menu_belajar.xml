@@ -1,156 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".Activity.MenuBelajarActivity"
     android:background="@color/colorBG">
-    <LinearLayout
+
+    androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="214dp"
+        android:background="@color/colorBG"
+        android:scaleType="centerCrop"
+        tools:ignore="MissingConstraints">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="214dp"
-            android:background="@color/colorBG"
-            android:scaleType="centerCrop">
-
-            <TextView
-                android:id="@+id/judul"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:text="Ayo pilih topik belajaramu !"
-                android:textColor="@color/black"
-                android:textSize="35sp"
-                android:textStyle="bold"></TextView>
-        </RelativeLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_gravity="center|center_vertical"
-                android:layout_height="wrap_content">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="340dp"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="15dp"
-                    android:id="@+id/btn_huruf"
-                    app:cardBackgroundColor="@color/colorPrimary">
-                    <ImageView
-                        android:layout_width="90dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginLeft="5dp"
-                        android:src="@drawable/lion">
-                    </ImageView>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="100dp"
-                        android:text="A B C"
-                        android:textStyle="bold"
-                        android:textSize="30dp"
-                        android:textColor="@android:color/white"
-                        android:gravity="left"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginBottom="30dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="100dp"
-                        android:text="Belajar menulis huruf"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@android:color/white"
-                        android:gravity="left"
-                        android:layout_marginTop="70dp"
-                        android:layout_marginBottom="30dp"/>
-
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_marginTop="35dp"
-            android:layout_gravity="center|center_vertical"
-            android:layout_height="wrap_content">
-            <androidx.cardview.widget.CardView
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="15dp"
-                android:id="@+id/btn_angka"
-                app:cardBackgroundColor="@color/tosca">
-                <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="5dp"
-                    android:src="@drawable/pinguin">
-                </ImageView>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="100dp"
-                    android:text="1 2 3"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
-                    android:textColor="@android:color/white"
-                    android:gravity="left"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="100dp"
-                    android:text="Belajar berhitung"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textColor="@android:color/white"
-                    android:gravity="left"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginBottom="30dp"/>
-
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/judul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="160dp"
-            android:background="#FFD9A4"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp">
+            android:layout_centerVertical="true"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="Ayo pilih topik belajaramu !"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/btn_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                tools:srcCompat="@drawable/home" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_gravity="center|center_vertical"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
 
-            <ImageView
-                android:id="@+id/btn_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                tools:srcCompat="@drawable/score" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ImageView
-                android:id="@+id/btn_akun"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                tools:srcCompat="@drawable/user" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn_huruf"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.364">
 
-        </LinearLayout>
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/lion"></ImageView>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="left"
+            android:paddingLeft="100dp"
+            android:text="A B C"
+            android:textColor="@android:color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="left"
+            android:paddingLeft="100dp"
+            android:text="Belajar menulis huruf"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-</RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn_angka"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        app:cardBackgroundColor="@color/tosca"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_angka"
+        app:layout_constraintVertical_bias="0.644"
+        tools:ignore="NotSibling">
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/pinguin"></ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="left"
+            android:paddingLeft="100dp"
+            android:text="1 2 3"
+            android:textColor="@android:color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="left"
+            android:paddingLeft="100dp"
+            android:text="Belajar berhitung"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="409dp"
+        android:layout_height="65dp"
+        android:background="#FFD9A4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/akun"
+            android:layout_width="76dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.533"
+            app:srcCompat="@drawable/user"
+            tools:ignore="MissingConstraints"></ImageView>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="76dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/home" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="76dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="58dp"
+            android:layout_marginLeft="58dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="59dp"
+            android:layout_marginRight="59dp"
+            android:layout_marginBottom="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/akun"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/score" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

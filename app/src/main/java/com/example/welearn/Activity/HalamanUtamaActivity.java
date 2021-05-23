@@ -11,24 +11,23 @@ import android.widget.TextView;
 
 import com.example.welearn.R;
 
-public class MenuBelajarActivity extends AppCompatActivity {
+public class HalamanUtamaActivity extends AppCompatActivity {
 
-    TextView title;
-    CardView btn_huruf, btn_angka;
+    CardView btn_lanjutkan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_belajar);
-        title = (TextView)findViewById(R.id.judul);
-        btn_huruf = (CardView)findViewById(R.id.btn_huruf);
-        btn_huruf.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_halaman_utama);
+
+        btn_lanjutkan = (CardView)findViewById((R.id.btn_lanjutkan));
+
+        btn_lanjutkan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MenuBelajarActivity.this, SoalHurufActivity.class);
+                Intent i = new Intent(HalamanUtamaActivity.this, LoginActivity.class);
                 startActivity(i);
             }
         });
-        btn_angka = (CardView)findViewById(R.id.btn_angka);
     }
 }

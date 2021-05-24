@@ -48,12 +48,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/btn_huruf"
-        android:layout_width="318dp"
-        android:layout_height="123dp"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
         app:cardBackgroundColor="@color/colorPrimary"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -98,12 +98,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/btn_angka"
-        android:layout_width="318dp"
-        android:layout_height="123dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/tosca"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"

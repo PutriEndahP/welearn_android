@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.HurufLv1Activity"
+    android:background="@color/colorBG">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:scaleType="centerCrop">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:contentDescription="@string/button_back_desc"
+                    android:src="@drawable/previous"></ImageView>
+
+                <TextView
+                    android:id="@+id/judul_level"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="65dp"
+                    android:layout_marginRight="65dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/level"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="30sp"
+                    android:textStyle="bold"></TextView>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/soal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/soal"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_vertical"
+            android:layout_marginTop="10dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_soal"
+                android:layout_width="384dp"
+                android:layout_height="55dp"
+                app:cardBackgroundColor="@color/colorSecond"
+                app:cardCornerRadius="15dp">
+
+                <ImageView
+                    android:id="@+id/btn_sound"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="@string/button_volume_desc"
+                    android:src="@drawable/volume"></ImageView>
+
+                <TextView
+                    android:id="@+id/soalnya"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:text="@string/soalhuruf"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="30sp"
+                    android:textStyle="bold"></TextView>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal"
+            android:layout_marginTop="10dp">
+
+            <RelativeLayout
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp">
+
+                <com.williamww.silkysignature.views.SignaturePad
+                    android:id="@+id/huruf_pad"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@drawable/border"></com.williamww.silkysignature.views.SignaturePad>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="210dp"
+                android:layout_marginTop="20dp"
+                android:layout_centerVertical="true">
+
+                <com.williamww.silkysignature.views.SignaturePad
+                    android:id="@+id/huruf_pad2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@drawable/border"></com.williamww.silkysignature.views.SignaturePad>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center|center_vertical">
+
+            <com.williamww.silkysignature.views.SignaturePad
+                android:id="@+id/huruf_pad3"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/border"></com.williamww.silkysignature.views.SignaturePad>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/button_reset"
+        android:layout_width="207dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginRight="200dp"
+        app:cardBackgroundColor="@color/colorButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/reset"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:contentDescription="@string/button_reset_desc"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/reset"></ImageView>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/button_send"
+        android:layout_width="207dp"
+        android:layout_height="56dp"
+        app:cardBackgroundColor="@color/tosca"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_reset"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/button_send_desc"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/check"></ImageView>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,5 +7,5 @@
     android:orientation="vertical"
     tools:context=".Activity.SoalHurufActivity"
     android:background="@color/colorBG">
-   
+
 </RelativeLayout>

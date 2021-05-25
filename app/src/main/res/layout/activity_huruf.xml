@@ -9,11 +9,11 @@
 
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/back"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="36dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/level"
         app:layout_constraintHorizontal_bias="0.339"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,7 +21,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -35,29 +35,29 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/soal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="80dp"
         android:text="@string/soal"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_soal"
+        android:id="@+id/isi_soal"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="120dp"
         app:cardBackgroundColor="@color/colorSecond"
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <ImageView
@@ -86,49 +86,66 @@
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad"
         android:layout_width="382dp"
-        android:layout_height="441dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/border"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="214dp"></com.williamww.silkysignature.views.SignaturePad>
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/isi_soal"
+        tools:ignore="MissingConstraints"></com.williamww.silkysignature.views.SignaturePad>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/button_reset"
-        android:layout_width="207dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="414dp"
         android:layout_height="56dp"
-        app:cardBackgroundColor="@color/colorButton"
+        android:outlineSpotShadowColor="@color/tosca"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
 
-        <ImageView
-            android:id="@+id/reset"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/button_reset_desc"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:src="@drawable/reset"></ImageView>
-    </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/button_reset"
+            android:layout_width="207dp"
+            android:layout_height="56dp"
+            app:cardBackgroundColor="@color/colorButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/button_send"
-        android:layout_width="207dp"
-        android:layout_height="56dp"
-        app:cardBackgroundColor="@color/tosca"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_reset"
-        tools:ignore="MissingConstraints">
+            <ImageView
+                android:id="@+id/reset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/button_reset_desc"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:src="@drawable/reset"></ImageView>
+        </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/send"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/button_send_desc"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:src="@drawable/check"></ImageView>
-    </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/button_send"
+            android:layout_width="207dp"
+            android:layout_height="56dp"
+            app:cardBackgroundColor="@color/tosca"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button_reset"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/send"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/button_send_desc"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:src="@drawable/check"></ImageView>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

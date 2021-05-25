@@ -30,5 +30,13 @@ public class MenuBelajarActivity extends AppCompatActivity {
             }
         });
         btn_angka = (CardView)findViewById(R.id.btn_angka);
+        btn_angka.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MenuBelajarActivity.this, HurufActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 }

@@ -25,7 +25,7 @@ public class SoalHurufActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soal_huruf);
-        ImageView = (ImageView)findViewById(R.id.btn_back);
+//        ImageView = (ImageView)findViewById(R.id.btn_back);
         ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,10 +34,10 @@ public class SoalHurufActivity extends AppCompatActivity {
             }
         });
         ImageSound = (ImageView)findViewById(R.id.btn_sound);
-        judul = (TextView)findViewById(R.id.judul_level);
+//        judul = (TextView)findViewById(R.id.judul_level);
         soal = (TextView)findViewById(R.id.soal);
         textSoal = (TextView)findViewById(R.id.soalnya);
-        cardSoal = (CardView)findViewById(R.id.card_soal);
+//        cardSoal = (CardView)findViewById(R.id.card_soal);
         hurufPad = (SignaturePad)findViewById(R.id.huruf_pad);
         btn_reset = (CardView)findViewById(R.id.button_reset);
         reset = (ImageView)findViewById(R.id.reset);

@@ -3,7 +3,9 @@ package com.example.welearn.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +38,13 @@ public class HurufBaruActivity extends AppCompatActivity {
         card_soal = (CardView)findViewById(R.id.card_soal);
         btn_reset = (CardView)findViewById(R.id.button_reset);
         btn_send = (CardView)findViewById(R.id.button_send);
+        btn_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HurufBaruActivity.this, HurufLv1Activity.class);
+                startActivity(i);
+            }
+        });
         huruf_pad = (SignaturePad)findViewById(R.id.huruf_pad);
     }
 }

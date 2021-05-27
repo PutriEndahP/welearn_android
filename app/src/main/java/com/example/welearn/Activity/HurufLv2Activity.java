@@ -3,26 +3,25 @@ package com.example.welearn.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.welearn.R;
 import com.williamww.silkysignature.views.SignaturePad;
 
-public class HurufLv1Activity extends AppCompatActivity {
+public class HurufLv2Activity extends AppCompatActivity {
 
     ImageView btn_back, btn_sound, reset, send;
     TextView title, soal, soalnya;
     CardView card_soal, btn_reset, btn_send;
-    SignaturePad huruf_pad, huruf_pad2, huruf_pad3;
+    SignaturePad huruf_pad, huruf_pad2, huruf_pad3, huruf_pad4, huruf_pad5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_huruf_lv1);
+        setContentView(R.layout.activity_huruf_lv2);
         btn_back = (ImageView)findViewById(R.id.btn_back);
         btn_sound = (ImageView)findViewById(R.id.btn_sound);
         reset = (ImageView)findViewById(R.id.reset);
@@ -33,15 +32,10 @@ public class HurufLv1Activity extends AppCompatActivity {
         card_soal = (CardView)findViewById(R.id.card_soal);
         btn_reset = (CardView)findViewById(R.id.button_reset);
         btn_send = (CardView)findViewById(R.id.button_send);
-        btn_send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HurufLv1Activity.this, HurufLv2Activity.class);
-                startActivity(i);
-            }
-        });
         huruf_pad = (SignaturePad)findViewById(R.id.huruf_pad);
         huruf_pad2 = (SignaturePad)findViewById(R.id.huruf_pad2);
         huruf_pad3 = (SignaturePad)findViewById(R.id.huruf_pad3);
+        huruf_pad4 = (SignaturePad)findViewById(R.id.huruf_pad4);
+        huruf_pad5 = (SignaturePad)findViewById(R.id.huruf_pad5);
     }
 }

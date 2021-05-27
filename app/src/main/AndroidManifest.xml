@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Activity.HurufLv2Activity"></activity>
+        <activity android:name=".Activity.HurufLv3Activity"></activity>
+        <activity android:name=".Activity.HurufLv2Activity" />
         <activity android:name=".Activity.HurufBaruActivity" />
         <activity android:name=".Activity.HurufLv1Activity" /> <!-- <activity android:name=".Activity.HalamanUtamaActivity"></activity> -->
         <activity android:name=".Activity.LoginActivity" />

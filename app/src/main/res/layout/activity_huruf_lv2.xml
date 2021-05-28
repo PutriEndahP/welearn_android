@@ -82,7 +82,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.williamww.silkysignature.views.SignaturePad
-        android:id="@+id/huruf_pad"
+        android:id="@+id/padsoalangka"
         android:layout_width="127dp"
         android:layout_height="210dp"
         android:layout_marginStart="10dp"
@@ -101,7 +101,7 @@
         android:layout_marginLeft="6dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/border"
-        app:layout_constraintStart_toEndOf="@+id/huruf_pad"
+        app:layout_constraintStart_toEndOf="@+id/padsoalangka"
         app:layout_constraintTop_toBottomOf="@+id/card_soal"
         tools:ignore="MissingConstraints"></com.williamww.silkysignature.views.SignaturePad>
 

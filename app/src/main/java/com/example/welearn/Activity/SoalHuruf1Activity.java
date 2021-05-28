@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -49,6 +48,6 @@ public class SoalHuruf1Activity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        huruf_pad = (SignaturePad)findViewById(R.id.huruf_pad);
+        huruf_pad = (SignaturePad)findViewById(R.id.padsoalangka);
     }
 }

@@ -6,7 +6,6 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,7 +37,7 @@ public class SoalHurufActivity extends AppCompatActivity {
         soal = (TextView)findViewById(R.id.soal);
         textSoal = (TextView)findViewById(R.id.soalnya);
 //        cardSoal = (CardView)findViewById(R.id.card_soal);
-        hurufPad = (SignaturePad)findViewById(R.id.huruf_pad);
+        hurufPad = (SignaturePad)findViewById(R.id.padsoalangka);
         btn_reset = (CardView)findViewById(R.id.button_reset);
         reset = (ImageView)findViewById(R.id.reset);
         send = (ImageView)findViewById(R.id.send);

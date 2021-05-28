@@ -84,7 +84,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.williamww.silkysignature.views.SignaturePad
-        android:id="@+id/huruf_pad"
+        android:id="@+id/padsoalangka"
         android:layout_width="382dp"
         android:layout_height="400dp"
         android:layout_marginTop="50dp"

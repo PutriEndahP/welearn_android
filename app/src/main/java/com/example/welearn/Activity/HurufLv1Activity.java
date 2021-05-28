@@ -40,7 +40,7 @@ public class HurufLv1Activity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        huruf_pad = (SignaturePad)findViewById(R.id.huruf_pad);
+        huruf_pad = (SignaturePad)findViewById(R.id.padsoalangka);
         huruf_pad2 = (SignaturePad)findViewById(R.id.huruf_pad2);
         huruf_pad3 = (SignaturePad)findViewById(R.id.huruf_pad3);
     }

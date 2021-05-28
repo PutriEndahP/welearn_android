@@ -3,7 +3,6 @@ package com.example.welearn.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,7 +31,7 @@ public class HurufLv2Activity extends AppCompatActivity {
         card_soal = (CardView)findViewById(R.id.card_soal);
         btn_reset = (CardView)findViewById(R.id.button_reset);
         btn_send = (CardView)findViewById(R.id.button_send);
-        huruf_pad = (SignaturePad)findViewById(R.id.huruf_pad);
+        huruf_pad = (SignaturePad)findViewById(R.id.padsoalangka);
         huruf_pad2 = (SignaturePad)findViewById(R.id.huruf_pad2);
         huruf_pad3 = (SignaturePad)findViewById(R.id.huruf_pad3);
         huruf_pad4 = (SignaturePad)findViewById(R.id.huruf_pad4);

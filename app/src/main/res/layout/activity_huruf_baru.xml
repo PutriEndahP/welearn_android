@@ -198,7 +198,7 @@
                 android:layout_marginTop="25dp">
 
                 <com.williamww.silkysignature.views.SignaturePad
-                    android:id="@+id/huruf_pad"
+                    android:id="@+id/padsoalangka"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/border"></com.williamww.silkysignature.views.SignaturePad>

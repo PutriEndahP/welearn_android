@@ -45,6 +45,6 @@ public class HurufBaruActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        huruf_pad = (SignaturePad)findViewById(R.id.huruf_pad);
+        huruf_pad = (SignaturePad)findViewById(R.id.padsoalangka);
     }
 }

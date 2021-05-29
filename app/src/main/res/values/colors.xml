@@ -10,4 +10,6 @@
     <color name="colorSecond">#FED9A3</color>
     <color name="colorteksAngka">#A7CFC2</color>
     <color name="colorButton">#F77C4C</color>
+    <color name="white">#FFFFFF</color>
+    <color name="coklat">#AF823F</color>
 </resources>

@@ -133,7 +133,7 @@
         <ImageView
             android:id="@+id/reset"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
+            android:layout_height="wrap_content"
             android:contentDescription="@string/button_reset_desc"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"

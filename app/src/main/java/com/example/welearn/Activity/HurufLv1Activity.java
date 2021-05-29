@@ -36,8 +36,8 @@ public class HurufLv1Activity extends AppCompatActivity {
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HurufLv1Activity.this, HurufLv2Activity.class);
-                startActivity(i);
+                Intent a = new Intent(HurufLv1Activity.this, HurufLv2Activity.class);
+                startActivity(a);
             }
         });
         huruf_pad = (SignaturePad)findViewById(R.id.padsoalangka);

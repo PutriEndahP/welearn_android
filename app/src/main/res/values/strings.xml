@@ -26,4 +26,6 @@
     <string name="button_reset_desc"></string>
     <string name="button_send_desc"></string>
     <string name="soalangka">soalnya</string>
+    <string name="benar">Jawaban Benar</string>
+    <string name="true_desc"></string>
 </resources>

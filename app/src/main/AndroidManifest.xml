@@ -10,9 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Activity.BenarActivity"></activity>
+        <activity android:name=".Activity.CryActivity"></activity>
+        <activity android:name=".Activity.BenarActivity" />
         <activity android:name=".Activity.SoalAngka4cActivity" />
-        <activity android:name=".Activity.SoalAksaraActivity"></activity>
+        <activity android:name=".Activity.SoalAksaraActivity" />
         <activity android:name=".Activity.HurufLv2Activity" />
         <activity android:name=".Activity.HurufLv3Activity" />
         <activity android:name=".Activity.SkorActivity" />
@@ -23,7 +24,6 @@
         <activity android:name=".Activity.SoalAngkaLv3aActivity" />
         <activity android:name=".Activity.SoalAngkaLv4aActivity" />
         <activity android:name=".Activity.SoalAngkaLv4bActivity" />
-        <activity android:name=".Activity.SoalAngka4cActivity" />
         <activity android:name=".Activity.HurufBaruActivity" />
         <activity android:name=".Activity.HurufLv1Activity" /> <!-- <activity android:name=".Activity.HalamanUtamaActivity"></activity> -->
         <activity android:name=".Activity.LoginActivity" />

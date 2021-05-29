@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.CryActivity"
+    android:background="@color/colorBG">
+
+    <ImageView
+        android:id="@+id/pict_cry"
+        android:layout_width="231dp"
+        android:layout_height="213dp"
+        android:contentDescription="@string/true_desc"
+        android:src="@drawable/cry"
+        app:layout_constraintBottom_toTopOf="@+id/button_prev"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"></ImageView>
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/benar"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/benar"-->
+    <!--        android:textColor="@color/tosca"-->
+    <!--        android:textSize="30sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.497"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        tools:ignore="MissingConstraints"-->
+    <!--        tools:layout_editor_absoluteY="426dp"></TextView>-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/button_prev"
+        android:layout_width="207dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginRight="200dp"
+        app:cardBackgroundColor="@color/colorButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/prev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/button_reset_desc"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/sebelumnya"></ImageView>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/button_next"
+        android:layout_width="207dp"
+        android:layout_height="56dp"
+        app:cardBackgroundColor="@color/tosca"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_reset"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/button_send_desc"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/next"></ImageView>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

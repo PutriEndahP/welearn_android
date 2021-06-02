@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Activity.AngkaLv0bActivity"></activity>
+        <activity android:name=".Activity.AngkaLv0bActivity" />
         <activity android:name=".Activity.AngkaLv0aActivity" />
         <activity android:name=".Activity.CryActivity" />
         <activity android:name=".Activity.BenarActivity" />

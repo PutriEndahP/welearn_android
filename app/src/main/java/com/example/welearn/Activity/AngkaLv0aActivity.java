@@ -41,8 +41,8 @@ public class AngkaLv0aActivity extends AppCompatActivity {
             }
         });
 
-
         padsoalangka1 = (SignaturePad)findViewById(R.id.padsoalangka1);
+        padsoalangka1.setSignatureBitmap();
         padjawabangka1 = (SignaturePad)findViewById(R.id.padjawabangka1);
     }
 }

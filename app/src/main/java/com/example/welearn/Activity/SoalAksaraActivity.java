@@ -1,55 +1,31 @@
 package com.example.welearn.Activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.welearn.BuildConfig;
 import com.example.welearn.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import darren.googlecloudtts.BuildConfig;
 import darren.googlecloudtts.GoogleCloudTTS;
 import darren.googlecloudtts.GoogleCloudTTSFactory;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.CompletableObserver;
-import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.schedulers.Schedulers;
-
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.SeekBar;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import darren.googlecloudtts.GoogleCloudTTS;
-import darren.googlecloudtts.GoogleCloudTTSFactory;
-import darren.googlecloudtts.model.VoicesList;
-import darren.googlecloudtts.parameter.VoiceSelectionParams;
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.annotations.NonNull;
-import io.reactivex.rxjava3.core.CompletableObserver;
-import io.reactivex.rxjava3.core.SingleObserver;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class SoalAksaraActivity extends AppCompatActivity {
+    private static final String TAG = "MSoalAksaraActivity";
 
     ImageView back, btn_sound, reset, send;
     TextView soal, soalnya;

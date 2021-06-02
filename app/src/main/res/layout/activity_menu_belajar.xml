@@ -202,6 +202,21 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
+            android:id="@+id/akun"
+            android:layout_width="76dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginRight="56dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/user"
+            tools:ignore="MissingConstraints"></ImageView>
+
+        <ImageView
             android:id="@+id/score"
             android:layout_width="76dp"
             android:layout_height="35dp"
@@ -230,22 +245,6 @@
             app:layout_constraintVertical_bias="0.533"
             app:srcCompat="@drawable/pembatas"
             tools:ignore="MissingConstraints" />
-
-        <ImageView
-            android:id="@+id/akun"
-            android:layout_width="76dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="56dp"
-            android:layout_marginRight="56dp"
-            android:layout_marginBottom="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/user"
-            tools:ignore="MissingConstraints"></ImageView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

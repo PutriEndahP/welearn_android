@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.welearn"
-        minSdkVersion 24
+        minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -15,17 +15,11 @@ android {
     }
 
     buildTypes {
-        debug{
-            buildConfigField "String", "API_KEY", "\"AIzaSyB_PIS3NrZmc0nsK4-4Vgc-RRwI-I-FDpY\""
-        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -41,18 +35,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    // Import completable dan single
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
-
-    // Butterknif
-//    implementation 'com.jakewharton:butterknife:8.8.1'
-//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    implementation 'com.jakewharton:butterknife:10.0.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
-
-    implementation project(path: ':googlecloudtts')
-
-    implementation 'com.github.changemyminds:Google-Cloud-TTS-Android:1.0.2'
 
 }

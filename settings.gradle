@@ -1,3 +1,2 @@
-include ':googlecloudtts'
 include ':app'
 rootProject.name = "Welearn"

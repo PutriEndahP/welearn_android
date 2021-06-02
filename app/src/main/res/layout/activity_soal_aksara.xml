@@ -48,7 +48,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/btnIdSpeak"
+            android:id="@+id/btn_sound"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
@@ -57,6 +57,7 @@
             android:layout_marginBottom="20dp"
             android:contentDescription="@string/button_volume_desc"
             android:src="@drawable/volume"></ImageView>
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"

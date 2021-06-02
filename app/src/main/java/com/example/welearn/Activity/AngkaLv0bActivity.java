@@ -12,16 +12,16 @@ import android.widget.TextView;
 import com.example.welearn.R;
 import com.williamww.silkysignature.views.SignaturePad;
 
-public class SoalAngka1Activity extends AppCompatActivity {
+public class AngkaLv0bActivity extends AppCompatActivity {
 
     ImageView back, speaker, resetangka, submit;
     TextView levelangka, soalangka, soalnya, samadengan;
     CardView card_soalangka, card_reset, card_submit;
-    SignaturePad padsoalangka1, padjawabangka1;
+    SignaturePad padsoalangka1, padjawabangka1, padjawabangka2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_soal_angka1);
+        setContentView(R.layout.activity_angka_lv0b);
         back = (ImageView)findViewById(R.id.back);
         speaker = (ImageView)findViewById(R.id.speaker);
         resetangka = (ImageView)findViewById(R.id.resetangka);
@@ -36,11 +36,12 @@ public class SoalAngka1Activity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SoalAngka1Activity.this, SoalAngkaLv1aActivity.class);
+                Intent i = new Intent(AngkaLv0bActivity.this, SoalAngkaLv1bActivity.class);
                 startActivity(i);
             }
         });
         padsoalangka1 = (SignaturePad)findViewById(R.id.padsoalangka1);
         padjawabangka1 = (SignaturePad)findViewById(R.id.padjawabangka1);
+        padjawabangka2 = (SignaturePad)findViewById(R.id.padjawabangka2);
     }
 }

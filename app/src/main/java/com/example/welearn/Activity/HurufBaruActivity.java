@@ -14,15 +14,18 @@ import com.williamww.silkysignature.views.SignaturePad;
 
 public class HurufBaruActivity extends AppCompatActivity {
 
-    ImageView btn_back, btn_sound, reset, send, btn_;
+    ImageView btn_back, btn_sound, reset, send;
     TextView text_level, text_soalke, text_soalnya;
-    CardView card_soal, btn_reset, btn_send;
-    SignaturePad huruf_pad;
+    CardView card_soal, mBtnReset, mBtnSend;
+    SignaturePad mHurufPad;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_huruf_baru);
+        id = getIntent().getIntExtra("id",0);
+
 //        btn_back = (ImageView)findViewById(R.id.imageView3);
         btn_back = (ImageView)findViewById(R.id.btn_back);
 //        btn_sound = (ImageView)findViewById(R.id.btn_sound);
@@ -36,15 +39,41 @@ public class HurufBaruActivity extends AppCompatActivity {
         text_soalnya = (TextView)findViewById(R.id.soalnya);
 //        card_soal = (CardView)findViewById(R.id.card_soal);
         card_soal = (CardView)findViewById(R.id.card_soal);
-        btn_reset = (CardView)findViewById(R.id.button_reset);
-        btn_send = (CardView)findViewById(R.id.button_send);
-        btn_send.setOnClickListener(new View.OnClickListener() {
+        mBtnReset = (CardView)findViewById(R.id.button_reset);
+        mBtnSend = (CardView)findViewById(R.id.button_send);
+        mBtnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HurufBaruActivity.this, HurufLv1Activity.class);
                 startActivity(i);
             }
         });
-        huruf_pad = (SignaturePad)findViewById(R.id.padsoalangka);
+        mHurufPad = (SignaturePad)findViewById(R.id.huruf_pad);
+
+        mHurufPad.setOnSignedListener(new SignaturePad.OnSignedListener() {
+            @Override
+            public void onStartSigning() {
+
+            }
+
+            @Override
+            public void onSigned() {
+                mBtnSend.setEnabled(true);
+                mBtnReset.setEnabled(true);
+            }
+
+            @Override
+            public void onClear() {
+                mBtnSend.setEnabled(false);
+                mBtnReset.setEnabled(false);
+            }
+        });
+
+        mBtnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mHurufPad.clear();
+            }
+        });
     }
 }

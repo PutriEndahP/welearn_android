@@ -17,13 +17,16 @@ public class HurufLv2Activity extends AppCompatActivity {
 
     ImageView btn_back, btn_sound, reset, send;
     TextView title, soal, soalnya;
-    CardView card_soal, btn_reset, btn_send;
-    SignaturePad huruf_pad, huruf_pad2, huruf_pad3, huruf_pad4, huruf_pad5;
+    CardView card_soal, mBtnReset, mBtnSend;
+    SignaturePad mHurufPad, mHurufPad2, mHurufPad3, mHurufPad4, mHurufPad5;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_huruf_lv2);
+        id = getIntent().getIntExtra("id",0);
+
         btn_back = (ImageView)findViewById(R.id.btn_back);
         btn_sound = (ImageView)findViewById(R.id.btn_sound);
         reset = (ImageView)findViewById(R.id.reset);
@@ -32,12 +35,122 @@ public class HurufLv2Activity extends AppCompatActivity {
         soal = (TextView)findViewById(R.id.soal);
         soalnya = (TextView)findViewById(R.id.soalnya);
         card_soal = (CardView)findViewById(R.id.card_soal);
-        btn_reset = (CardView)findViewById(R.id.button_reset);
-        btn_send = (CardView)findViewById(R.id.button_send);
-        huruf_pad = (SignaturePad)findViewById(R.id.huruf_pad);
-        huruf_pad2 = (SignaturePad)findViewById(R.id.huruf_pad2);
-        huruf_pad3 = (SignaturePad)findViewById(R.id.huruf_pad3);
-        huruf_pad4 = (SignaturePad)findViewById(R.id.huruf_pad4);
-        huruf_pad5 = (SignaturePad)findViewById(R.id.huruf_pad5);
+        mBtnReset = (CardView)findViewById(R.id.button_reset);
+        mBtnSend = (CardView)findViewById(R.id.button_send);
+        mBtnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(HurufLv2Activity.this, HurufLv3Activity.class);
+                startActivity(a);
+            }
+        });
+
+        mHurufPad = (SignaturePad)findViewById(R.id.huruf_pad);
+        mHurufPad.setOnSignedListener(new SignaturePad.OnSignedListener() {
+            @Override
+            public void onStartSigning() {
+
+            }
+
+            @Override
+            public void onSigned() {
+                mBtnSend.setEnabled(true);
+                mBtnReset.setEnabled(true);
+            }
+
+            @Override
+            public void onClear() {
+                mBtnSend.setEnabled(false);
+                mBtnReset.setEnabled(false);
+            }
+        });
+
+        mHurufPad2 = (SignaturePad)findViewById(R.id.huruf_pad2);
+        mHurufPad2.setOnSignedListener(new SignaturePad.OnSignedListener() {
+            @Override
+            public void onStartSigning() {
+
+            }
+
+            @Override
+            public void onSigned() {
+                mBtnSend.setEnabled(true);
+                mBtnReset.setEnabled(true);
+            }
+
+            @Override
+            public void onClear() {
+                mBtnSend.setEnabled(false);
+                mBtnReset.setEnabled(false);
+            }
+        });
+        mHurufPad3 = (SignaturePad)findViewById(R.id.huruf_pad3);
+        mHurufPad3.setOnSignedListener(new SignaturePad.OnSignedListener() {
+            @Override
+            public void onStartSigning() {
+
+            }
+
+            @Override
+            public void onSigned() {
+                mBtnSend.setEnabled(true);
+                mBtnReset.setEnabled(true);
+            }
+
+            @Override
+            public void onClear() {
+                mBtnSend.setEnabled(false);
+                mBtnReset.setEnabled(false);
+            }
+        });
+        mHurufPad4 = (SignaturePad)findViewById(R.id.huruf_pad4);
+        mHurufPad4.setOnSignedListener(new SignaturePad.OnSignedListener() {
+            @Override
+            public void onStartSigning() {
+
+            }
+
+            @Override
+            public void onSigned() {
+                mBtnSend.setEnabled(true);
+                mBtnReset.setEnabled(true);
+            }
+
+            @Override
+            public void onClear() {
+                mBtnSend.setEnabled(false);
+                mBtnReset.setEnabled(false);
+            }
+        });
+        mHurufPad5 = (SignaturePad)findViewById(R.id.huruf_pad5);
+        mHurufPad5.setOnSignedListener(new SignaturePad.OnSignedListener() {
+            @Override
+            public void onStartSigning() {
+
+            }
+
+            @Override
+            public void onSigned() {
+                mBtnSend.setEnabled(true);
+                mBtnReset.setEnabled(true);
+            }
+
+            @Override
+            public void onClear() {
+                mBtnSend.setEnabled(false);
+                mBtnReset.setEnabled(false);
+            }
+        });
+
+        mBtnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mHurufPad.clear();
+                mHurufPad2.clear();
+                mHurufPad3.clear();
+                mHurufPad4.clear();
+                mHurufPad5.clear();
+            }
+        });
     }
 }

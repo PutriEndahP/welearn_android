@@ -27,11 +27,11 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class SoalAksaraActivity extends AppCompatActivity {
     private static final String TAG = "MSoalAksaraActivity";
 
-    ImageView back, btn_sound, reset, send;
+    ImageView back, btn_sound, reset, send, btnIdSpeak;
     TextView soal, soalnya;
 
-    @BindView(R.id.btnIdSpeak)
-    Button mButtonSpeak;
+//    @BindView(R.id.btnIdSpeak)
+//    Button mButtonSpeak;
 
 //    private TTSViewModel mMainViewModel;
     public MainViewModel mMainViewModel;
@@ -49,7 +49,30 @@ public class SoalAksaraActivity extends AppCompatActivity {
 
 //        onLoading();
 
-//        btnIdSpeak = (ImageView)findViewById(R.id.btnIdSpeak);
+        btnIdSpeak = (ImageView)findViewById(R.id.btnIdSpeak);
+        btnIdSpeak.setOnClickListener(e ->{
+            mMainViewModel.speak("Tuliskan huruf ha")
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnSubscribe(t -> initTTSVoice())
+                    .subscribe(new CompletableObserver() {
+                        @Override
+                        public void onSubscribe(@NonNull Disposable d) {
+
+                        }
+
+                        @Override
+                        public void onComplete() {
+                            makeToast("Speak success", false);
+                        }
+
+                        @Override
+                        public void onError(@NonNull Throwable e) {
+                            makeToast("Speak failed " + e.getMessage(), true);
+                            Log.e(TAG, "Speak failed", e);
+                        }
+                    });
+        });
 
         back = (ImageView)findViewById(R.id.back);
         btn_sound = (ImageView)findViewById(R.id.btn_sound);
@@ -61,31 +84,6 @@ public class SoalAksaraActivity extends AppCompatActivity {
 
     private void makeToast(String text, boolean longShow) {
         Toast.makeText(this, text, (longShow) ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show();
-    }
-
-    @OnClick(R.id.btnIdSpeak)
-    void onSpeak() {
-        mMainViewModel.speak("Tuliskan huruf ha")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnSubscribe(t -> initTTSVoice())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        makeToast("Speak success", false);
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        makeToast("Speak failed " + e.getMessage(), true);
-                        Log.e(TAG, "Speak failed", e);
-                    }
-                });
     }
 
     SeekBar mSeekBarPitch;
@@ -101,8 +99,8 @@ public class SoalAksaraActivity extends AppCompatActivity {
     private void initTTSVoice() {
         String languageCode = "id-ID";
         String voiceName = "id-ID-Wavenet-A";
-        float pitch = ((float) (getProgressPitch() - 2000) / 100);
-        float speakRate = ((float) (getProgressSpeakRate() + 25) / 100);
+        float pitch = ((float) (10) / 100);
+        float speakRate = ((float) (100) / 100);
 
         mMainViewModel.initTTSVoice(languageCode, voiceName, pitch, speakRate);
     }

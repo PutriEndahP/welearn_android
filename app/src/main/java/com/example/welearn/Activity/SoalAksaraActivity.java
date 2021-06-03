@@ -2,9 +2,7 @@ package com.example.welearn.Activity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,9 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.welearn.R;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import darren.googlecloudtts.BuildConfig;
 import darren.googlecloudtts.GoogleCloudTTS;
 import darren.googlecloudtts.GoogleCloudTTSFactory;
@@ -25,15 +21,11 @@ import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class SoalAksaraActivity extends AppCompatActivity {
-    private static final String TAG = "MSoalAksaraActivity";
+    private static final String TAG = "SoalAksaraActivity";
 
     ImageView back, btn_sound, reset, send, btnIdSpeak;
     TextView soal, soalnya;
 
-//    @BindView(R.id.btnIdSpeak)
-//    Button mButtonSpeak;
-
-//    private TTSViewModel mMainViewModel;
     public MainViewModel mMainViewModel;
 
     @Override
@@ -42,12 +34,10 @@ public class SoalAksaraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_soal_aksara);
 
         ButterKnife.bind(this);
-//        initViewValues();
 
         GoogleCloudTTS googleCloudTTS = GoogleCloudTTSFactory.create(BuildConfig.API_KEY);
         mMainViewModel = new MainViewModel(getApplication(), googleCloudTTS);
 
-//        onLoading();
 
         btnIdSpeak = (ImageView)findViewById(R.id.btnIdSpeak);
         btnIdSpeak.setOnClickListener(e ->{
@@ -84,16 +74,6 @@ public class SoalAksaraActivity extends AppCompatActivity {
 
     private void makeToast(String text, boolean longShow) {
         Toast.makeText(this, text, (longShow) ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show();
-    }
-
-    SeekBar mSeekBarPitch;
-    private int getProgressPitch() {
-        return mSeekBarPitch.getProgress();
-    }
-
-    SeekBar mSeekBarSpeakRate;
-    private int getProgressSpeakRate() {
-        return mSeekBarSpeakRate.getProgress();
     }
 
     private void initTTSVoice() {

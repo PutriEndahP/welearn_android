@@ -12,16 +12,17 @@ import android.widget.TextView;
 import com.example.welearn.R;
 import com.williamww.silkysignature.views.SignaturePad;
 
-public class SoalAngkaLv4aActivity extends AppCompatActivity {
+public class AngkaLv4bActivity extends AppCompatActivity {
 
     ImageView back, speaker, resetangka, submit;
-    TextView levelangka, soalangka, soalnya, samadengan, tambah;
-    CardView card_soalangka, card_reset, card_submit;
-    SignaturePad padsoalangka1, padsoalangka2, padsoalangka3, padjawabangka1, padjawabangka2;
+    TextView levelangka, soalangka, soalnya, samadengan, kurang;
+    CardView card_soalangka, card_reset, card_submit, card_soalangka1, card_soalangka2;
+    SignaturePad padjawabangka1, padjawabangka2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_soal_angka_lv4a);
+        setContentView(R.layout.activity_angka_lv4a);
         back = (ImageView) findViewById(R.id.back);
         speaker = (ImageView) findViewById(R.id.speaker);
         resetangka = (ImageView) findViewById(R.id.resetangka);
@@ -29,21 +30,21 @@ public class SoalAngkaLv4aActivity extends AppCompatActivity {
         levelangka = (TextView) findViewById(R.id.levelangka);
         soalangka = (TextView) findViewById(R.id.soalangka);
         soalnya = (TextView) findViewById(R.id.soalnya);
+        kurang = (TextView) findViewById(R.id.kurang);
         samadengan = (TextView) findViewById(R.id.samadengan);
-        tambah = (TextView) findViewById(R.id.tambah);
         card_soalangka = (CardView) findViewById(R.id.card_soalangka);
         card_reset = (CardView) findViewById(R.id.card_reset);
         card_submit = (CardView) findViewById(R.id.card_submit);
+        card_soalangka1 = (CardView)findViewById(R.id.card_soalangka1);
+        card_soalangka2 = (CardView)findViewById(R.id.card_soalangka2);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(SoalAngkaLv4aActivity.this, HalamanUtamaActivity.class);
+                Intent i = new Intent(AngkaLv4bActivity.this, MenuBelajarActivity.class);
                 startActivity(i);
             }
         });
-        padsoalangka1 = (SignaturePad) findViewById(R.id.padsoalangka1);
-        padsoalangka2 = (SignaturePad) findViewById(R.id.padsoalangka2);
-        padsoalangka3 = (SignaturePad) findViewById(R.id.padsoalangka3);
+
         padjawabangka1 = (SignaturePad) findViewById(R.id.padjawabangka1);
         padjawabangka2 = (SignaturePad) findViewById(R.id.padjawabangka2);
     }

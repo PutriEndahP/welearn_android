@@ -12,6 +12,8 @@ public interface ApiClientWelearn {
 
     @FormUrlEncoded
     @POST("login")
-    Call<AccessToken> login(@Field("email") String email,
+    Call<AccessToken> login(@Field("username") String username,
                             @Field("password") String password);
+
+
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,12 +13,23 @@ import android.widget.TextView;
 import com.example.welearn.R;
 import com.williamww.silkysignature.views.SignaturePad;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+
 public class HurufBaruActivity extends AppCompatActivity {
 
     ImageView btn_back, btn_sound, reset, send;
     TextView text_level, text_soalke, text_soalnya;
     CardView card_soal, mBtnReset, mBtnSend;
     SignaturePad mHurufPad;
+
     int id;
 
     @Override
@@ -73,6 +85,39 @@ public class HurufBaruActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mHurufPad.clear();
+            }
+        });
+
+        mBtnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                File file = new File(getApplicationContext().getCacheDir(), "huruf");
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Bitmap hurufBitmap = mHurufPad.getSignatureBitmap();
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                hurufBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] bitmap_data = byteArrayOutputStream.toByteArray();
+                FileOutputStream fos = null;
+                try {
+                    fos = new FileOutputStream(file);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    fos.write(bitmap_data);
+                    fos.flush();
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), file);
+                MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), reqFile);
             }
         });
     }

@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,14 +53,19 @@ public class LoginActivity extends AppCompatActivity {
         cardView = (CardView)findViewById(R.id.card_username);
         cardView1 = (CardView)findViewById(R.id.card_password);
         cardView2 = (CardView)findViewById(R.id.btn_login);
+        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
+                Context.MODE_PRIVATE));
 //        btnLogin = (Button) findViewById(R.id.btn_login);
-        cardView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(LoginActivity.this, MenuBelajarActivity.class);
-                startActivity(i);
-            }
+        cardView2.setOnClickListener(e -> {
+            login();
         });
+//        cardView2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(LoginActivity.this, MenuBelajarActivity.class);
+//                startActivity(i);
+//            }
+//        });
     }
 
     protected void login() {
@@ -77,9 +84,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<AccessToken> call, Response<AccessToken> response) {
 //                pDialog.dismiss();
+//                Log.e("response", response.body().getMessage().getToken().toString());
                 if (response.code() == 200) {
                     tokenManager.saveToken(response.body());
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MenuBelajarActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
@@ -120,8 +128,8 @@ public class LoginActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId())
             {
-                case R.id.btn_register:
-//                    Log.d("btn","mulai klik");
+                case R.id.btn_login:
+                  Log.d("btn","mulai klik");
                     login();
 
 //                    final SweetAlertDialog pDialog = new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.PROGRESS_TYPE);

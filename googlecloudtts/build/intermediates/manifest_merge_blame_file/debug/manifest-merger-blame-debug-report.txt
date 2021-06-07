@@ -6,8 +6,8 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
-8-->D:\TA WAJIB KERJA\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
+8-->E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="28" />
-9-->D:\TA WAJIB KERJA\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
+9-->E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
 10
 11</manifest>

@@ -29,9 +29,9 @@ public class TokenManager {
 
     }
 
-    public AccessToken getToken(){
-        AccessToken token = new AccessToken();
-        token.getMessage().setToken(prefs.getString("ACCESS_TOKEN", null));
-        return token;
+    public String getToken(){
+//        AccessToken token = new AccessToken();
+//        token.getMessage().setToken(prefs.getString("ACCESS_TOKEN", null));
+        return prefs.getString("ACCESS_TOKEN", null);
     }
 }

@@ -16,7 +16,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServerWelearn {
-    public final static String BASE_URL = "https://462bd26a7867.ngrok.io/api/v1/"; // API laptop server
+    public final static String BASE_URL = "https://e9e18c5b22b3.ngrok.io/api/v1/"; // API laptop server
 //    private final static String API_BASE_URL = BASE_URL+"api/v1/";
 
     private final static OkHttpClient client = buildClient();
@@ -37,9 +37,10 @@ public class ServerWelearn {
                         return chain.proceed(request);
                     }
                 });
-        return builder.connectTimeout(5, TimeUnit.MINUTES) // connect timeout
-                .writeTimeout(5, TimeUnit.MINUTES) // write timeout
-                .readTimeout(5, TimeUnit.MINUTES).build();
+        return builder.connectTimeout(20, TimeUnit.MINUTES) // connect timeout
+                .writeTimeout(20, TimeUnit.MINUTES) // write timeout
+                .readTimeout(20, TimeUnit.MINUTES).build();
+//        return builder.build();
 
     }
 
@@ -55,46 +56,46 @@ public class ServerWelearn {
         return retrofit.create(service);
     }
 
-////    public static <T> T createServiceWithAuth(Class <T> service, final TokenManager tokenManager){
-//        OkHttpClient newClient = client.newBuilder().addInterceptor(new Interceptor() {
-//            @Override
-//            public Response intercept(Chain chain) throws IOException {
-//                Request request = chain.request();
-//
-//                Request.Builder builder = request.newBuilder();
-//
-////                if(tokenManager.getToken().getAccessToken() !=null){
-////                    builder.addHeader("Authorization","Bearer " + tokenManager.getToken().getAccessToken());
-////                }
-//
-//                request=builder.build();
-//                return chain.proceed(request);
-//            }
-//        }).authenticator(new Authenticator() {
-//            @Nullable
-//            @Override
-//            public Request authenticate(@Nullable Route route, Response response) throws IOException {
-//                AccessToken token = tokenManager.getToken();
-//
-//                ApiClientWelearn service = ServerWelearn.createService(ApiClientWelearn.class);
-//                Call<AccessToken> call = service.refresh(token.getRefreshToken());
-//                retrofit2.Response<AccessToken> res = call.execute();
-//
-//                if(res.isSuccessful()){
-//                    AccessToken newToken = res.body();
-//                    tokenManager.saveToken(newToken);
-//
-//                    return response.request().newBuilder().header("Authorization","Bearer " + res.body().getAccessToken()).build();
-//                }
-//                else {
-//                    return null;
-//                }
-//            }
-//        }).build();
-//
-//        Retrofit newRetrofit = retrofit.newBuilder().client(newClient).build();
-//        return newRetrofit.create(service);
-//    }
+    public static <T> T createServiceWithAuth(Class <T> service, final TokenManager tokenManager){
+        OkHttpClient newClient = client.newBuilder().addInterceptor(new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+                Request request = chain.request();
+
+                Request.Builder builder = request.newBuilder();
+
+                if(tokenManager.getToken() !=null){
+                    builder.addHeader("Authorization","Bearer " + tokenManager.getToken());
+                }
+
+                request=builder.build();
+                return chain.proceed(request);
+            }
+        }).authenticator(new Authenticator() {
+            @Nullable
+            @Override
+            public Request authenticate(@Nullable Route route, Response response) throws IOException {
+                String token = tokenManager.getToken();
+
+                ApiClientWelearn service = ServerWelearn.createService(ApiClientWelearn.class);
+                Call<AccessToken> call = service.refresh(token);
+                retrofit2.Response<AccessToken> res = call.execute();
+
+                if(res.isSuccessful()){
+                    AccessToken newToken = res.body();
+                    tokenManager.saveToken(res.body());
+
+                    return response.request().newBuilder().header("Authorization","Bearer " + token).build();
+                }
+                else {
+                    return null;
+                }
+            }
+        }).build();
+
+        Retrofit newRetrofit = retrofit.newBuilder().client(newClient).build();
+        return newRetrofit.create(service);
+    }
 
     public static Retrofit getRetrofit(){
         return retrofit;

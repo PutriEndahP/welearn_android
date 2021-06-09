@@ -3,7 +3,6 @@ package com.example.welearn.Response.Login;
 import com.google.gson.annotations.SerializedName;
 
 public class ResponseLogin {
-
     @SerializedName("message")
     String pesan;
 

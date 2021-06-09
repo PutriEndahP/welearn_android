@@ -38,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",MODE_PRIVATE));
+
         title = (TextView)findViewById(R.id.judul);
         textView = (TextView)findViewById(R.id.textView);
         textRegister = (TextView)findViewById(R.id.register);

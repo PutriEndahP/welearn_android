@@ -26,7 +26,7 @@ public class MenuBelajarActivity extends AppCompatActivity {
         btn_huruf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MenuBelajarActivity.this, HurufBaruActivity.class);
+                Intent i = new Intent(MenuBelajarActivity.this, LevelHurufActivity.class);
                 startActivity(i);
             }
         });

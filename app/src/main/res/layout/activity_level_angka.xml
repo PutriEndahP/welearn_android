@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.LevelAngkaActivity"
+    android:background="@color/colorBG">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="122dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/levelangka"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_back"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/icon0"
+            android:layout_width="76dp"
+            android:layout_height="74dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/level0" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/lev0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Level 0"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="122dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="36dp"
+        app:cardBackgroundColor="@color/levelangka"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lev0"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/icon1"
+            android:layout_width="76dp"
+            android:layout_height="74dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/level1" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/lev1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Level 1"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/lev2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="122dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="60dp"
+        app:cardBackgroundColor="#B9DFD3"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lev0"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/icon2"
+            android:layout_width="76dp"
+            android:layout_height="74dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/level2" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/lev2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="84dp"
+        android:text="Level 2"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_width="122dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="36dp"
+        app:cardBackgroundColor="@color/levelangka"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintEnd_toStartOf="@+id/cardView6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lev1"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/icon3"
+            android:layout_width="76dp"
+            android:layout_height="74dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/level3" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/lev3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Level 3"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/lev4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView5"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_width="122dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="60dp"
+        app:cardBackgroundColor="@color/levelangka"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lev2"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/icon4"
+            android:layout_width="76dp"
+            android:layout_height="74dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/level4" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/lev4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="84dp"
+        android:text="Level 4"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView6"
+        tools:ignore="MissingConstraints" />
+
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="51dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

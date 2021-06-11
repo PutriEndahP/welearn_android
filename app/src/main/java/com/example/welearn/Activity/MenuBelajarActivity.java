@@ -34,7 +34,7 @@ public class MenuBelajarActivity extends AppCompatActivity {
         btn_angka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent k = new Intent(MenuBelajarActivity.this, AngkaLv0aActivity.class);
+                Intent k = new Intent(MenuBelajarActivity.this, LevelAngkaActivity.class);
                 startActivity(k);
             }
         });

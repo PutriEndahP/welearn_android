@@ -17,6 +17,8 @@ import androidx.cardview.widget.CardView;
 import com.example.welearn.R;
 import com.example.welearn.Response.Api.ResponseApi;
 import com.example.welearn.Response.Api.ResponsePredict;
+import com.example.welearn.Response.Api.ResponseSoal;
+import com.example.welearn.Response.Api.ResponseType.ListSoalHuruf;
 import com.example.welearn.Retrofit.ApiClientWelearn;
 import com.example.welearn.Retrofit.ServerWelearn;
 import com.example.welearn.Retrofit.TokenManager;
@@ -44,6 +46,7 @@ public class HurufBaruActivity extends AppCompatActivity {
     CardView card_soal, mBtnReset, mBtnSend;
     SignaturePad mHurufPad;
     TokenManager tokenManager;
+    ApiClientWelearn api;
 
     int id;
 
@@ -60,6 +63,32 @@ public class HurufBaruActivity extends AppCompatActivity {
         text_level = (TextView)findViewById(R.id.judul_level);
         text_soalke = (TextView)findViewById(R.id.soal);
         text_soalnya = (TextView)findViewById(R.id.soalnya);
+
+        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
+                Context.MODE_PRIVATE));
+//                ApiClientWelearn api = ServerWelearn.createServiceWithAuth(ApiClientWelearn.class, tokenManager);
+        api = ServerWelearn.createService(ApiClientWelearn.class);
+        Call<ResponseSoal<ArrayList<ListSoalHuruf>>> soal = api.getSoalHuruf("2", "Bearer " + tokenManager.getToken());
+
+        soal.enqueue(new Callback<ResponseSoal<ArrayList<ListSoalHuruf>>>() {
+            @Override
+            public void onResponse(Call<ResponseSoal<ArrayList<ListSoalHuruf>>> call, Response<ResponseSoal<ArrayList<ListSoalHuruf>>> response) {
+                if (response.code() == 200) {
+                    Log.e("response get soal", response.body().getMessage().toString());
+
+                } else {
+                    Log.e("gagal get soal", response.raw().toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseSoal<ArrayList<ListSoalHuruf>>> call, Throwable t) {
+                Log.e("Gagal", t.toString());
+            }
+        });
+
+
+
         card_soal = (CardView)findViewById(R.id.card_soal);
         mBtnReset = (CardView)findViewById(R.id.button_reset);
         mBtnSend = (CardView)findViewById(R.id.button_send);
@@ -132,10 +161,6 @@ public class HurufBaruActivity extends AppCompatActivity {
                 RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), file);
                 MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), reqFile);
 
-                tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
-                        Context.MODE_PRIVATE));
-//                ApiClientWelearn api = ServerWelearn.createServiceWithAuth(ApiClientWelearn.class, tokenManager);
-                ApiClientWelearn api = ServerWelearn.createService(ApiClientWelearn.class);
                 Call<ResponsePredict> upload = api.predict(valueList,"11", "Bearer " + tokenManager.getToken());
 //                Log.e("response", tokenManager.getToken());
 //                Log.e("response", valueList.toArray().toString());

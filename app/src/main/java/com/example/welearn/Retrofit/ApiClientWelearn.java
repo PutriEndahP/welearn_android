@@ -2,6 +2,8 @@ package com.example.welearn.Retrofit;
 
 import com.example.welearn.Response.Api.ResponseApi;
 import com.example.welearn.Response.Api.ResponsePredict;
+import com.example.welearn.Response.Api.ResponseSoal;
+import com.example.welearn.Response.Api.ResponseType.ListSoalHuruf;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -10,10 +12,12 @@ import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public interface ApiClientWelearn {
     @POST("refresh")
@@ -29,5 +33,6 @@ public interface ApiClientWelearn {
     Call<ResponsePredict> predict(@Field("img") ArrayList<String> image,
                                   @Field("id_soal") String id_soal, @Header("Authorization") String authHeader);
 
-
+    @GET("randHuruf/{id}")
+    Call<ResponseSoal<ArrayList<ListSoalHuruf>>> getSoalHuruf(@Path("id") String id, @Header("Authorization") String authHeader);
 }

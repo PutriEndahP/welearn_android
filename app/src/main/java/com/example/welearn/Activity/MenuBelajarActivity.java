@@ -57,6 +57,15 @@ public class MenuBelajarActivity extends AppCompatActivity {
             }
         });
 
+        akun = (ImageView)findViewById(R.id.akun);
+        akun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(MenuBelajarActivity.this, ProfilActivity.class);
+                startActivity(a);
+            }
+        });
+
 
     }
 }

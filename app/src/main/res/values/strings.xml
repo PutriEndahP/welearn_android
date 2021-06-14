@@ -28,6 +28,9 @@
     <string name="soalangka">soalnya</string>
     <string name="benar">Jawaban Benar</string>
     <string name="true_desc"></string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="username">Username</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="email">Email</string>
+    <string name="scorehuruf">Score Huruf</string>
+    <string name="scoreangka">Score Angka</string>
 </resources>

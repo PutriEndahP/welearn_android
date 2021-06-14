@@ -30,7 +30,7 @@ public interface ApiClientWelearn {
                             @Field("password") String password);
     @FormUrlEncoded
     @POST("predict")
-    Call<ResponsePredict> predict(@Field("img") ArrayList<String> image,
+    Call<ResponsePredict> predict(@Field("img[]") ArrayList<String> image,
                                   @Field("id_soal") String id_soal, @Header("Authorization") String authHeader);
 
     @GET("randHuruf/{id}")

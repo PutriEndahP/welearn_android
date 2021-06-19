@@ -2,23 +2,43 @@ package com.example.welearn.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.welearn.R;
+import com.example.welearn.Response.Api.ResponseSoal;
+import com.example.welearn.Response.Api.ResponseType.ListSoalHuruf;
+import com.example.welearn.Response.Profile.Profile;
+import com.example.welearn.Response.Profile.ResponseProfile;
+import com.example.welearn.Retrofit.AccessToken;
+import com.example.welearn.Retrofit.ApiClientWelearn;
+import com.example.welearn.Retrofit.ServerWelearn;
+import com.example.welearn.Retrofit.TokenManager;
+
+import java.util.ArrayList;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProfilActivity extends AppCompatActivity {
 
     ImageView btn_back, account, logoutProfile;
     TextView title, username, email, jenis_kelamin, textView3, scorehuruf, scoreangka, textView4, logout;
+    TokenManager tokenManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
+        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",MODE_PRIVATE));
+
         btn_back = (ImageView)findViewById(R.id.btn_back);
         account = (ImageView)findViewById(R.id.account);
         logoutProfile = (ImageView)findViewById(R.id.logoutProfile);
@@ -34,6 +54,43 @@ public class ProfilActivity extends AppCompatActivity {
         logout.setOnClickListener(e -> {
             onBackPressed();
         });
+
+        getProfile();
+
+//        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
+//                Context.MODE_PRIVATE));
+////                ApiClientWelearn api = ServerWelearn.createServiceWithAuth(ApiClientWelearn.class, tokenManager);
+//        ApiClientWelearn api = ServerWelearn.createService(ApiClientWelearn.class);
+//        Call<AccessToken> logout = api.logout();
+    }
+
+    private void getProfile() {
+        final SweetAlertDialog pDialog = new SweetAlertDialog(ProfilActivity.this, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialog.setTitleText("Loading");
+        pDialog.show();
+
+        ApiClientWelearn api = ServerWelearn.createServiceWithAuth(ApiClientWelearn.class,tokenManager);
+        final Call<ResponseSoal<Profile>> profile = api.getprofile();
+        profile.enqueue(new Callback<ResponseSoal<Profile>>() {
+
+            @Override
+            public void onResponse(Call<ResponseSoal<Profile>> call, Response<ResponseSoal<Profile>> response) {
+                if(response.isSuccessful()) {
+                    pDialog.dismiss();
+                    ResponseSoal<Profile> ResponseProfile = response.body();
+                    username.setText(response.body().getMessage().getUsername());
+                    email.setText(response.body().getMessage().getEmail());
+                    jenis_kelamin.setText(response.body().getMessage().getJenis_kelamin());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseSoal<Profile>> call, Throwable t) {
+
+            }
+        });
+
     }
 
     @Override
@@ -66,4 +123,5 @@ public class ProfilActivity extends AppCompatActivity {
 //            super.onBackPressed();
 //        }
     }
+
 }

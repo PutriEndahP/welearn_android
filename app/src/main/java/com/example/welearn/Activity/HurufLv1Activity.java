@@ -68,7 +68,7 @@ public class HurufLv1Activity extends AppCompatActivity {
                 startActivity(a);
             }
         });
-        mHurufPad = (SignaturePad)findViewById(R.id.padsoalangka);
+        mHurufPad = (SignaturePad)findViewById(R.id.huruf_pad);
         mHurufPad.setOnSignedListener(new SignaturePad.OnSignedListener() {
             @Override
             public void onStartSigning() {
@@ -218,7 +218,7 @@ public class HurufLv1Activity extends AppCompatActivity {
                             mHurufPad.clear();
                             mHurufPad2.clear();
                             mHurufPad3.clear();
-                            Intent intent = new Intent(HurufLv1Activity.this, HurufLv1Activity.class);
+                            Intent intent = new Intent(HurufLv1Activity.this, HurufLv2Activity.class);
                             intent.putExtra("id", id);
                             startActivity(intent);
                     } else {

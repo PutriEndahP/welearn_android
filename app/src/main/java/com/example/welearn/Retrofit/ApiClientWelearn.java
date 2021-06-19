@@ -4,8 +4,11 @@ import com.example.welearn.Response.Api.ResponseApi;
 import com.example.welearn.Response.Api.ResponsePredict;
 import com.example.welearn.Response.Api.ResponseSoal;
 import com.example.welearn.Response.Api.ResponseType.ListSoalHuruf;
+import com.example.welearn.Response.Profile.Profile;
+import com.example.welearn.Response.Profile.ResponseProfile;
 
 import java.lang.reflect.Array;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import okhttp3.MultipartBody;
@@ -35,4 +38,15 @@ public interface ApiClientWelearn {
 
     @GET("randHuruf/{id}")
     Call<ResponseSoal<ArrayList<ListSoalHuruf>>> getSoalHuruf(@Path("id") String id, @Header("Authorization") String authHeader);
+
+    @FormUrlEncoded
+    @POST("register")
+    Call<AccessToken> register(@Field("email") String email,
+                               @Field("password") String password,
+                               @Field("name") String name,
+                               @Field("username") String username,
+                               @Field("jenis_kelamin") String jenis_kelamin);
+
+    @GET("detail")
+    Call<ResponseSoal<Profile>> getprofile();
 }

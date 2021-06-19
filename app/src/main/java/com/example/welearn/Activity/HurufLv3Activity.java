@@ -3,14 +3,38 @@ package com.example.welearn.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.welearn.R;
+import com.example.welearn.Response.Api.ResponsePredict;
+import com.example.welearn.Retrofit.ApiClientWelearn;
+import com.example.welearn.Retrofit.ServerWelearn;
+import com.example.welearn.Retrofit.TokenManager;
 import com.williamww.silkysignature.views.SignaturePad;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HurufLv3Activity extends AppCompatActivity {
 
@@ -19,6 +43,7 @@ public class HurufLv3Activity extends AppCompatActivity {
     SignaturePad mHurufPad, mHurufPad2, mHurufPad3, mHurufPad4, mHurufPad5, mHurufPad6, mHurufPad7, mHurufPad8, mHurufPad9;
     CardView card_soal, mBtnReset, mBtnSend;
     int id;
+    TokenManager tokenManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,6 +246,170 @@ public class HurufLv3Activity extends AppCompatActivity {
                 mHurufPad7.clear();
                 mHurufPad8.clear();
                 mHurufPad9.clear();
+            }
+        });
+
+        mBtnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                File file = new File(getApplicationContext().getCacheDir(), "huruf");
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Bitmap hurufBitmap = mHurufPad.getSignatureBitmap();
+                Bitmap hurufBitmap2 = mHurufPad2.getSignatureBitmap();
+                Bitmap hurufBitmap3 = mHurufPad3.getSignatureBitmap();
+                Bitmap hurufBitmap4 = mHurufPad4.getSignatureBitmap();
+                Bitmap hurufBitmap5 = mHurufPad5.getSignatureBitmap();
+                Bitmap hurufBitmap6 = mHurufPad6.getSignatureBitmap();
+                Bitmap hurufBitmap7 = mHurufPad7.getSignatureBitmap();
+                Bitmap hurufBitmap8 = mHurufPad8.getSignatureBitmap();
+                Bitmap hurufBitmap9 = mHurufPad9.getSignatureBitmap();
+
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+                ByteArrayOutputStream byteArrayOutputStream3 = new ByteArrayOutputStream();
+                ByteArrayOutputStream byteArrayOutputStream4 = new ByteArrayOutputStream();
+                ByteArrayOutputStream byteArrayOutputStream5 = new ByteArrayOutputStream();
+                ByteArrayOutputStream byteArrayOutputStream6 = new ByteArrayOutputStream();
+                ByteArrayOutputStream byteArrayOutputStream7 = new ByteArrayOutputStream();
+                ByteArrayOutputStream byteArrayOutputStream8 = new ByteArrayOutputStream();
+                ByteArrayOutputStream byteArrayOutputStream9 = new ByteArrayOutputStream();
+
+                hurufBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] bitmap_data = byteArrayOutputStream.toByteArray();
+                hurufBitmap2.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream2);
+                byte[] bitmap_data2 = byteArrayOutputStream2.toByteArray();
+                hurufBitmap3.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream3);
+                byte[] bitmap_data3 = byteArrayOutputStream3.toByteArray();
+                hurufBitmap4.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream4);
+                byte[] bitmap_data4 = byteArrayOutputStream4.toByteArray();
+                hurufBitmap5.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream5);
+                byte[] bitmap_data5 = byteArrayOutputStream5.toByteArray();
+                hurufBitmap6.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream6);
+                byte[] bitmap_data6 = byteArrayOutputStream6.toByteArray();
+                hurufBitmap7.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream7);
+                byte[] bitmap_data7 = byteArrayOutputStream7.toByteArray();
+                hurufBitmap8.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream8);
+                byte[] bitmap_data8 = byteArrayOutputStream8.toByteArray();
+                hurufBitmap9.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream9);
+                byte[] bitmap_data9 = byteArrayOutputStream9.toByteArray();
+
+                FileOutputStream fos = null;
+                try {
+                    fos = new FileOutputStream(file);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    fos.write(bitmap_data);
+                    fos.flush();
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                String value = Base64.encodeToString(bitmap_data, Base64.DEFAULT); //image to base64
+                String value2 = Base64.encodeToString(bitmap_data2, Base64.DEFAULT); //image to base64
+                String value3 = Base64.encodeToString(bitmap_data3, Base64.DEFAULT); //image to base64
+                String value4 = Base64.encodeToString(bitmap_data4, Base64.DEFAULT); //image to base64
+                String value5 = Base64.encodeToString(bitmap_data5, Base64.DEFAULT); //image to base64
+                String value6 = Base64.encodeToString(bitmap_data6, Base64.DEFAULT); //image to base64
+                String value7 = Base64.encodeToString(bitmap_data7, Base64.DEFAULT); //image to base64
+                String value8 = Base64.encodeToString(bitmap_data8, Base64.DEFAULT); //image to base64
+                String value9 = Base64.encodeToString(bitmap_data9, Base64.DEFAULT); //image to base64
+                ArrayList<String> valueList = new ArrayList<>();
+                valueList.add(value);
+                valueList.add(value2);
+                valueList.add(value3);
+                valueList.add(value4);
+                valueList.add(value5);
+                valueList.add(value6);
+                valueList.add(value7);
+                valueList.add(value8);
+                valueList.add(value9);
+
+                Log.e("listfoto", String.valueOf(valueList.size()));
+
+                RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), file);
+                MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), reqFile);
+
+                tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
+                        Context.MODE_PRIVATE));
+                ApiClientWelearn api = ServerWelearn.createService(ApiClientWelearn.class);
+                Call<ResponsePredict> upload = api.predict(valueList,"9", "Bearer " + tokenManager.getToken());
+
+                final SweetAlertDialog pDialog = new SweetAlertDialog(HurufLv3Activity.this, SweetAlertDialog.PROGRESS_TYPE);
+                pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+                pDialog.setTitleText("Loading");
+                pDialog.setCancelable(false);
+                pDialog.show();
+
+                upload.enqueue(new Callback<ResponsePredict>() {
+                    @Override
+                    public void onResponse(Call<ResponsePredict> call, Response<ResponsePredict> response) {
+                        if (response.code() == 200) {
+                            Log.e("response", response.body().getMessage());
+                            pDialog.dismiss();
+                            new SweetAlertDialog(HurufLv3Activity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                    .setTitleText(response.body().getMessage())
+                                    .setContentText("Berhasil Dikonfirmasi")
+                                    .setConfirmText("OK")
+                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                        @Override
+                                        public void onClick(SweetAlertDialog sDialog) {
+                                            sDialog.dismissWithAnimation();
+
+                                        }
+                                    }).show();
+
+                            mHurufPad.clear();
+                            mHurufPad2.clear();
+                            mHurufPad3.clear();
+                            mHurufPad4.clear();
+                            mHurufPad5.clear();
+                            mHurufPad6.clear();
+                            mHurufPad7.clear();
+                            mHurufPad8.clear();
+                            mHurufPad9.clear();
+                            Intent intent = new Intent(HurufLv3Activity.this, HurufLv3Activity.class);
+                            intent.putExtra("id", id);
+                            startActivity(intent);
+                        } else {
+                            pDialog.dismiss();
+                            Log.e("testes", response.raw().toString());
+                            new SweetAlertDialog(HurufLv3Activity.this, SweetAlertDialog.WARNING_TYPE)
+                                    .setTitleText("Error")
+                                    .setContentText("Terjadi kesalahan, mohon ulangi lagi.")
+                                    .setConfirmText("OK")
+                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                        @Override
+                                        public void onClick(SweetAlertDialog sDialog) {
+                                            sDialog.dismissWithAnimation();
+                                        }
+                                    }).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponsePredict> call, Throwable t) {
+                        Log.e("response", t.toString());
+                        pDialog.dismiss();
+                        new SweetAlertDialog(HurufLv3Activity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Hasil")
+                                .setContentText("Internet Anda Bermasalah")
+                                .setConfirmText("OK")
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sDialog) {
+                                        sDialog.dismissWithAnimation();
+                                    }
+                                }).show();
+                    }
+                });
             }
         });
     }

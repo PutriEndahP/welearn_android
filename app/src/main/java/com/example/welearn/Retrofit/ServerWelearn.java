@@ -16,7 +16,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServerWelearn {
-    public final static String BASE_URL = "https://053c512b9a79.ngrok.io/api/v1/"; // API laptop server
+    public final static String BASE_URL = "https://c5ff2827d099.ngrok.io/api/v1/"; // API laptop server
 //    private final static String API_BASE_URL = BASE_URL+"api/v1/";
 
     private final static OkHttpClient client = buildClient();
@@ -37,9 +37,9 @@ public class ServerWelearn {
                         return chain.proceed(request);
                     }
                 });
-        return builder.connectTimeout(20, TimeUnit.MINUTES) // connect timeout
-                .writeTimeout(20, TimeUnit.MINUTES) // write timeout
-                .readTimeout(20, TimeUnit.MINUTES).build();
+        return builder.connectTimeout(40, TimeUnit.MINUTES) // connect timeout
+                .writeTimeout(40, TimeUnit.MINUTES) // write timeout
+                .readTimeout(40, TimeUnit.MINUTES).build();
 //        return builder.build();
 
     }

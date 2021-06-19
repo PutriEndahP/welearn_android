@@ -26,12 +26,12 @@ public class HalamanUtamaActivity extends AppCompatActivity {
 
         btn_lanjutkan = (CardView)findViewById((R.id.btn_lanjutkan));
 
-        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
-                Context.MODE_PRIVATE));
-        if (tokenManager.getToken()!=null) {
-            Intent i = new Intent(HalamanUtamaActivity.this, MenuBelajarActivity.class);
-            startActivity(i);
-        }
+//        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
+//                Context.MODE_PRIVATE));
+//        if (tokenManager.getToken()!=null) {
+//            Intent i = new Intent(HalamanUtamaActivity.this, MenuBelajarActivity.class);
+//            startActivity(i);
+//        }
 
         btn_lanjutkan.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -33,4 +33,7 @@
     <string name="email">Email</string>
     <string name="scorehuruf">Score Huruf</string>
     <string name="scoreangka">Score Angka</string>
+    <string name="question">Soal</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

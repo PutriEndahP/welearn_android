@@ -1,9 +1,12 @@
 package com.example.welearn.Response.Api.ResponseType;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ListSoalHuruf {
+public class ListSoalHuruf implements Parcelable {
     @SerializedName("id_soal")
     @Expose
     private Integer idSoal;
@@ -70,4 +73,38 @@ public class ListSoalHuruf {
     public void setJawaban(String jawaban) {
         this.jawaban = jawaban;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(idSoal);
+        dest.writeInt(idJenis);
+        dest.writeInt(idLevel);
+        dest.writeString(soal);
+        dest.writeString(keterangan);
+        dest.writeString(jawaban);
+    }
+
+    public ListSoalHuruf(Parcel in) {
+        idSoal = in.readInt();
+        idJenis = in.readInt();
+        idLevel = in.readInt();
+        soal = in.readString();
+        keterangan = in.readString();
+        jawaban = in.readString();
+    }
+
+    public static final Parcelable.Creator<ListSoalHuruf> CREATOR = new Parcelable.Creator<ListSoalHuruf>() {
+        public ListSoalHuruf createFromParcel(Parcel in) {
+            return new ListSoalHuruf(in);
+        }
+
+        public ListSoalHuruf[] newArray(int size) {
+            return new ListSoalHuruf[size];
+        }
+    };
 }

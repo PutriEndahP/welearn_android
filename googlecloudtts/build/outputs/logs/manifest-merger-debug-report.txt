@@ -12,26 +12,26 @@ INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\mai
 		INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
-		ADDED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml:1:1-2:39
-		INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
+		INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
+		ADDED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml:1:1-2:39
+		INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
-		ADDED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml:1:1-2:39
-		INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
+		INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
+		ADDED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml:1:1-2:39
+		INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml:1:11-69
+		ADDED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml:1:11-69
 uses-sdk
-INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
-INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
-INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
-INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
+INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
+INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
+INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
+INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
-		ADDED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
+		INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
+		ADDED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
+		INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
-		ADDED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\asus\AndroidStudioProjects\Welearn\googlecloudtts\src\main\AndroidManifest.xml
+		INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
+		ADDED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml
+		INJECTED from E:\KULIAH\Semester 8\TA\Kodingan\welearn_android\googlecloudtts\src\main\AndroidManifest.xml

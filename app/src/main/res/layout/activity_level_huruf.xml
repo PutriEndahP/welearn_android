@@ -7,16 +7,34 @@
     tools:context=".Activity.LevelHurufActivity"
     android:background="@color/colorBG">
 
+    <TextView
+        android:id="@+id/lev0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="12dp"
+        android:text="Level 0"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/lev1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:ignore="MissingConstraints" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="122dp"
         android:layout_height="114dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
         app:cardBackgroundColor="@color/levelhuruf"
         app:cardCornerRadius="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cardView3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_back"
+        app:layout_constraintTop_toBottomOf="@+id/judul_level"
         tools:ignore="MissingConstraints">
 
         <ImageView
@@ -27,63 +45,52 @@
             app:srcCompat="@drawable/level0" />
     </androidx.cardview.widget.CardView>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_width="122dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="60dp"
+        app:cardBackgroundColor="@color/levelhuruf"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lev1"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/icon3"
+            android:layout_width="76dp"
+            android:layout_height="74dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/level3" />
+    </androidx.cardview.widget.CardView>
+
+
     <TextView
-        android:id="@+id/lev0"
+        android:id="@+id/lev3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Level 0"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="80dp"
+        android:text="Level 3"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        tools:ignore="MissingConstraints" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
-        android:layout_width="122dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="36dp"
-        app:cardBackgroundColor="@color/levelhuruf"
-        app:cardCornerRadius="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lev0"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/icon1"
-            android:layout_width="76dp"
-            android:layout_height="74dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/level1" />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/lev1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Level 1"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/lev2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        app:layout_constraintTop_toBottomOf="@+id/cardView5"
         tools:ignore="MissingConstraints" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="122dp"
         android:layout_height="114dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
         app:cardBackgroundColor="@color/levelhuruf"
         app:cardCornerRadius="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cardView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lev0"
         tools:ignore="MissingConstraints">
 
@@ -96,89 +103,54 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/lev1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="80dp"
+        android:text="Level 1"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
         android:id="@+id/lev2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="84dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="12dp"
         android:text="Level 2"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lev3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2"
         tools:ignore="MissingConstraints" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView5"
+        android:id="@+id/cardView3"
         android:layout_width="122dp"
         android:layout_height="114dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="36dp"
-        app:cardBackgroundColor="@color/levelhuruf"
-        app:cardCornerRadius="100dp"
-        app:layout_constraintEnd_toStartOf="@+id/cardView6"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lev1"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/icon3"
-            android:layout_width="76dp"
-            android:layout_height="74dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/level3" />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/lev3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Level 3"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/lev4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView5"
-        tools:ignore="MissingConstraints" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView6"
-        android:layout_width="122dp"
-        android:layout_height="114dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="60dp"
         app:cardBackgroundColor="@color/levelhuruf"
         app:cardCornerRadius="100dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lev2"
+        app:layout_constraintTop_toBottomOf="@+id/judul_level"
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/icon4"
+            android:id="@+id/icon1"
             android:layout_width="76dp"
             android:layout_height="74dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/level4" />
+            app:srcCompat="@drawable/level1" />
     </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/lev4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="84dp"
-        android:text="Level 4"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView6"
-        tools:ignore="MissingConstraints" />
-
 
     <ImageView
         android:id="@+id/btn_back"
@@ -191,5 +163,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/previous"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/judul_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="Soal Huruf"
+        android:textColor="@color/colorPrimary"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

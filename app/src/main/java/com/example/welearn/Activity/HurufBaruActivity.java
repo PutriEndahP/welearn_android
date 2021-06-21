@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -32,6 +33,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import darren.googlecloudtts.BuildConfig;
+import darren.googlecloudtts.GoogleCloudTTS;
+import darren.googlecloudtts.GoogleCloudTTSFactory;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.CompletableObserver;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -48,44 +57,85 @@ public class HurufBaruActivity extends AppCompatActivity {
     TokenManager tokenManager;
     ApiClientWelearn api;
 
+    private static final String TAG = "HurufBaruActivity";
+    public MainViewModel mMainViewModel;
+
     int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_huruf_baru);
-        id = getIntent().getIntExtra("id",0);
+
+        Bundle extras = getIntent().getExtras();
+        ArrayList<ListSoalHuruf> arraylist = extras.getParcelableArrayList("mylist");
+//        ArrayList<ListSoalHuruf> arraylist = extras.
+
+        id = extras.getInt("id");
 
         btn_back = (ImageView)findViewById(R.id.btn_back);
+
+        GoogleCloudTTS googleCloudTTS = GoogleCloudTTSFactory.create(BuildConfig.API_KEY);
+        mMainViewModel = new MainViewModel(getApplication(), googleCloudTTS);
+
         btn_sound = (ImageView)findViewById(R.id.btn_sound);
+        btn_sound.setOnClickListener(e ->{
+            mMainViewModel.speak(arraylist.get(id).getKeterangan())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnSubscribe(t -> initTTSVoice())
+                    .subscribe(new CompletableObserver() {
+                        @Override
+                        public void onSubscribe(@NonNull Disposable d) {
+
+                        }
+
+                        @Override
+                        public void onComplete() {
+                            makeToast("Speak success", false);
+                        }
+
+                        @Override
+                        public void onError(@NonNull Throwable e) {
+                            makeToast("Speak failed " + e.getMessage(), true);
+                            Log.e(TAG, "Speak failed", e);
+                        }
+                    });
+        });
+
+
         reset = (ImageView)findViewById(R.id.reset);
         send = (ImageView)findViewById(R.id.send);
         text_level = (TextView)findViewById(R.id.judul_level);
         text_soalke = (TextView)findViewById(R.id.soal);
         text_soalnya = (TextView)findViewById(R.id.soalnya);
+        text_soalnya.setText(arraylist.get(id).getSoal());
 
-        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
-                Context.MODE_PRIVATE));
-//                ApiClientWelearn api = ServerWelearn.createServiceWithAuth(ApiClientWelearn.class, tokenManager);
-        api = ServerWelearn.createService(ApiClientWelearn.class);
-        Call<ResponseSoal<ArrayList<ListSoalHuruf>>> soal = api.getSoalHuruf("2", "Bearer " + tokenManager.getToken());
+        text_soalke.setText("Soal ke : "+String.valueOf(id+1));
 
-        soal.enqueue(new Callback<ResponseSoal<ArrayList<ListSoalHuruf>>>() {
-            @Override
-            public void onResponse(Call<ResponseSoal<ArrayList<ListSoalHuruf>>> call, Response<ResponseSoal<ArrayList<ListSoalHuruf>>> response) {
-                if (response.code() == 200) {
-                    Log.e("response get soal", response.body().getMessage().toString());
 
-                } else {
-                    Log.e("gagal get soal", response.raw().toString());
-                }
-            }
+//        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
+//                Context.MODE_PRIVATE));
+////                ApiClientWelearn api = ServerWelearn.createServiceWithAuth(ApiClientWelearn.class, tokenManager);
+//        api = ServerWelearn.createService(ApiClientWelearn.class);
+//        Call<ResponseSoal<ArrayList<ListSoalHuruf>>> soal = api.getSoalHuruf(arraylist.get(id).getSoal(), "Bearer " + tokenManager.getToken());
 
-            @Override
-            public void onFailure(Call<ResponseSoal<ArrayList<ListSoalHuruf>>> call, Throwable t) {
-                Log.e("Gagal", t.toString());
-            }
-        });
+//        soal.enqueue(new Callback<ResponseSoal<ArrayList<ListSoalHuruf>>>() {
+//            @Override
+//            public void onResponse(Call<ResponseSoal<ArrayList<ListSoalHuruf>>> call, Response<ResponseSoal<ArrayList<ListSoalHuruf>>> response) {
+//                if (response.code() == 200) {
+//                    Log.e("response get soal", response.body().getMessage().toString());
+//
+//                } else {
+//                    Log.e("gagal get soal", response.raw().toString());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseSoal<ArrayList<ListSoalHuruf>>> call, Throwable t) {
+//                Log.e("Gagal", t.toString());
+//            }
+//        });
 
 
 
@@ -227,6 +277,19 @@ public class HurufBaruActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    private void makeToast(String text, boolean longShow) {
+        Toast.makeText(this, text, (longShow) ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show();
+    }
+
+    private void initTTSVoice() {
+        String languageCode = "id-ID";
+        String voiceName = "id-ID-Wavenet-A";
+        float pitch = ((float) (10) / 100);
+        float speakRate = ((float) (100) / 100);
+
+        mMainViewModel.initTTSVoice(languageCode, voiceName, pitch, speakRate);
     }
 }
 

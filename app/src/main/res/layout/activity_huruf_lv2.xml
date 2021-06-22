@@ -83,52 +83,46 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad"
-        android:layout_width="127dp"
-        android:layout_height="210dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/border"
+        app:layout_constraintBottom_toTopOf="@+id/button_reset"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/huruf_pad2"
         app:layout_constraintTop_toBottomOf="@+id/card_soal"
         tools:ignore="MissingConstraints"></com.williamww.silkysignature.views.SignaturePad>
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad3"
-        android:layout_width="127dp"
-        android:layout_height="210dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/border"
+        app:layout_constraintBottom_toTopOf="@+id/huruf_pad"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/huruf_pad"
+        app:layout_constraintStart_toEndOf="@+id/huruf_pad4"
         app:layout_constraintTop_toBottomOf="@+id/card_soal"
         tools:ignore="MissingConstraints"></com.williamww.silkysignature.views.SignaturePad>
 
     <com.williamww.silkysignature.views.SignaturePad
-        android:id="@+id/huruf_pad4"
-        android:layout_width="127dp"
-        android:layout_height="210dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="50dp"
+        android:id="@+id/huruf_pad5"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/button_reset"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/huruf_pad3"
+        app:layout_constraintTop_toBottomOf="@+id/huruf_pad"
         tools:ignore="MissingConstraints"></com.williamww.silkysignature.views.SignaturePad>
 
     <com.williamww.silkysignature.views.SignaturePad
-        android:id="@+id/huruf_pad5"
-        android:layout_width="127dp"
-        android:layout_height="210dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="50dp"
+        android:id="@+id/huruf_pad4"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="40dp"
         android:background="@drawable/border"
-        app:layout_constraintBottom_toTopOf="@+id/button_send"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/huruf_pad4"
-        app:layout_constraintTop_toBottomOf="@+id/huruf_pad2"
+        app:layout_constraintBottom_toTopOf="@+id/huruf_pad2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_soal"
         tools:ignore="MissingConstraints"></com.williamww.silkysignature.views.SignaturePad>
 
     <androidx.cardview.widget.CardView
@@ -174,11 +168,11 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad2"
-        android:layout_width="127dp"
-        android:layout_height="210dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="40dp"
         android:background="@drawable/border"
-        app:layout_constraintEnd_toStartOf="@+id/huruf_pad"
+        app:layout_constraintBottom_toTopOf="@+id/button_reset"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_soal"
         tools:ignore="MissingConstraints"></com.williamww.silkysignature.views.SignaturePad>

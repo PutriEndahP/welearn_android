@@ -49,8 +49,8 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad"
-        android:layout_width="125dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/huruf_pad4"
         app:layout_constraintEnd_toStartOf="@+id/huruf_pad2"
@@ -60,8 +60,8 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad2"
-        android:layout_width="125dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/huruf_pad5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,8 +71,8 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad3"
-        android:layout_width="125dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/huruf_pad6"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,8 +82,8 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad4"
-        android:layout_width="125dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/button_reset"
         app:layout_constraintEnd_toStartOf="@+id/huruf_pad5"
@@ -93,8 +93,8 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad5"
-        android:layout_width="125dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/button_reset"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,8 +104,8 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad6"
-        android:layout_width="125dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/button_send"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,8 +115,8 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad7"
-        android:layout_width="125dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/button_reset"
         app:layout_constraintEnd_toStartOf="@+id/huruf_pad8"
@@ -126,8 +126,8 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad8"
-        android:layout_width="125dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/button_reset"
         app:layout_constraintEnd_toEndOf="parent"
@@ -137,8 +137,8 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad9"
-        android:layout_width="125dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/button_send"
         app:layout_constraintEnd_toEndOf="parent"

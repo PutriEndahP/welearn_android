@@ -83,13 +83,15 @@
 
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad"
-        android:layout_width="384dp"
-        android:layout_height="480dp"
+        android:layout_width="385dp"
+        android:layout_height="385dp"
         android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/button_reset"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_soal"
+        app:penMinWidth="7dp"
+        app:penMaxWidth="7dp"
         tools:ignore="MissingConstraints"></com.williamww.silkysignature.views.SignaturePad>
 
     <androidx.cardview.widget.CardView

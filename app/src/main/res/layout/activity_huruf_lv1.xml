@@ -84,9 +84,9 @@
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad"
         android:layout_width="190dp"
-        android:layout_height="200dp"
+        android:layout_height="190dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/border"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_soal"
@@ -95,8 +95,8 @@
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad2"
         android:layout_width="190dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/border"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +106,7 @@
     <com.williamww.silkysignature.views.SignaturePad
         android:id="@+id/huruf_pad3"
         android:layout_width="190dp"
-        android:layout_height="200dp"
+        android:layout_height="190dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="60dp"
         android:background="@drawable/border"

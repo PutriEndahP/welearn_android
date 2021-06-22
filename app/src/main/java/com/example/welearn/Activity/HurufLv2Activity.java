@@ -70,7 +70,7 @@ public class HurufLv2Activity extends AppCompatActivity {
             }
         });
 
-        mHurufPad = (SignaturePad)findViewById(R.id.huruf_pad2);
+        mHurufPad = (SignaturePad)findViewById(R.id.huruf_pad4);
         mHurufPad.setOnSignedListener(new SignaturePad.OnSignedListener() {
             @Override
             public void onStartSigning() {
@@ -90,7 +90,7 @@ public class HurufLv2Activity extends AppCompatActivity {
             }
         });
 
-        mHurufPad2 = (SignaturePad)findViewById(R.id.huruf_pad);
+        mHurufPad2 = (SignaturePad)findViewById(R.id.huruf_pad3);
         mHurufPad2.setOnSignedListener(new SignaturePad.OnSignedListener() {
             @Override
             public void onStartSigning() {
@@ -109,7 +109,7 @@ public class HurufLv2Activity extends AppCompatActivity {
                 mBtnReset.setEnabled(false);
             }
         });
-        mHurufPad3 = (SignaturePad)findViewById(R.id.huruf_pad3);
+        mHurufPad3 = (SignaturePad)findViewById(R.id.huruf_pad2);
         mHurufPad3.setOnSignedListener(new SignaturePad.OnSignedListener() {
             @Override
             public void onStartSigning() {
@@ -128,7 +128,7 @@ public class HurufLv2Activity extends AppCompatActivity {
                 mBtnReset.setEnabled(false);
             }
         });
-        mHurufPad4 = (SignaturePad)findViewById(R.id.huruf_pad4);
+        mHurufPad4 = (SignaturePad)findViewById(R.id.huruf_pad);
         mHurufPad4.setOnSignedListener(new SignaturePad.OnSignedListener() {
             @Override
             public void onStartSigning() {

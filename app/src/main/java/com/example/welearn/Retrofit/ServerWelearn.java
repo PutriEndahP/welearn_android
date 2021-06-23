@@ -16,7 +16,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServerWelearn {
-    public final static String BASE_URL = "https://ef628f052b46.ngrok.io/api/v1/"; // API laptop server
+
+    public final static String BASE_URL = "https://f00cb604b246.ngrok.io/api/v1/"; // API laptop server
+
 //    private final static String API_BASE_URL = BASE_URL+"api/v1/";
 
     private final static OkHttpClient client = buildClient();

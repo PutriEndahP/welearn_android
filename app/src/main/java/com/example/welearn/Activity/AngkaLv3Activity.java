@@ -36,19 +36,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AngkaLv12Activity extends AppCompatActivity {
+public class AngkaLv3Activity extends AppCompatActivity {
 
     ImageView back, speaker, resetangka, submit;
-    TextView levelangka, soalangka, soalnya, samadengan, tambah;
+    TextView levelangka, soalangka, soalnya, samadengan, kurang;
     CardView card_soalangka, card_reset, card_submit, card_soalangka1, card_soalangka2;
-    SignaturePad padjawabangka1;
+    SignaturePad  padjawabangka1;
     TokenManager tokenManager;
     int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_angka_lv12);
+        setContentView(R.layout.activity_angka_lv13);
         id = getIntent().getIntExtra("id",0);
         back = (ImageView)findViewById(R.id.back);
         speaker = (ImageView)findViewById(R.id.speaker);
@@ -57,15 +57,13 @@ public class AngkaLv12Activity extends AppCompatActivity {
         levelangka = (TextView)findViewById(R.id.levelangka);
         soalangka = (TextView)findViewById(R.id.soalangka);
         soalnya = (TextView)findViewById(R.id.soalnya);
-        tambah = (TextView)findViewById(R.id.tambah);
         samadengan = (TextView)findViewById(R.id.samadengan);
+        kurang = (TextView)findViewById(R.id.kurang);
         card_soalangka = (CardView)findViewById(R.id.card_soalangka);
         card_reset = (CardView)findViewById(R.id.card_reset);
         card_submit = (CardView)findViewById(R.id.card_submit);
         card_soalangka1 = (CardView)findViewById(R.id.card_soalangka1);
         card_soalangka2 = (CardView)findViewById(R.id.card_soalangka2);
-        padjawabangka1 = (SignaturePad) findViewById(R.id.padjawabangka1);
-
         padjawabangka1 = (SignaturePad) findViewById(R.id.padjawabangka1);
 
         padjawabangka1.setOnSignedListener(new SignaturePad.OnSignedListener() {
@@ -136,7 +134,7 @@ public class AngkaLv12Activity extends AppCompatActivity {
                 ApiClientWelearn api = ServerWelearn.createService(ApiClientWelearn.class);
                 Call<ResponsePredict> upload = api.predictangka(valueList,"9", "Bearer " + tokenManager.getToken());
 
-                final SweetAlertDialog pDialog = new SweetAlertDialog(AngkaLv12Activity.this, SweetAlertDialog.PROGRESS_TYPE);
+                final SweetAlertDialog pDialog = new SweetAlertDialog(AngkaLv3Activity.this, SweetAlertDialog.PROGRESS_TYPE);
                 pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
                 pDialog.setTitleText("Loading");
                 pDialog.setCancelable(false);
@@ -148,7 +146,7 @@ public class AngkaLv12Activity extends AppCompatActivity {
                         if (response.code() == 200) {
                             Log.e("response", response.body().getMessage());
                             pDialog.dismiss();
-                            new SweetAlertDialog(AngkaLv12Activity.this, SweetAlertDialog.SUCCESS_TYPE)
+                            new SweetAlertDialog(AngkaLv3Activity.this, SweetAlertDialog.SUCCESS_TYPE)
                                     .setTitleText(response.body().getMessage())
                                     .setContentText("Berhasil Dikonfirmasi")
                                     .setConfirmText("OK")
@@ -161,13 +159,13 @@ public class AngkaLv12Activity extends AppCompatActivity {
                                     }).show();
 
                             padjawabangka1.clear();
-                            Intent intent = new Intent(AngkaLv12Activity.this, AngkaLv13Activity.class); //coba coba
+                            Intent intent = new Intent(AngkaLv3Activity.this, AngkaLv4aActivity.class); //coba coba
                             intent.putExtra("id", id);
                             startActivity(intent);
                         } else {
                             pDialog.dismiss();
                             Log.e("testes", response.raw().toString());
-                            new SweetAlertDialog(AngkaLv12Activity.this, SweetAlertDialog.WARNING_TYPE)
+                            new SweetAlertDialog(AngkaLv3Activity.this, SweetAlertDialog.WARNING_TYPE)
                                     .setTitleText("Error")
                                     .setContentText("Terjadi kesalahan, mohon ulangi lagi.")
                                     .setConfirmText("OK")
@@ -185,7 +183,7 @@ public class AngkaLv12Activity extends AppCompatActivity {
                     public void onFailure(Call<ResponsePredict> call, Throwable t) {
                         Log.e("response", t.toString());
                         pDialog.dismiss();
-                        new SweetAlertDialog(AngkaLv12Activity.this, SweetAlertDialog.ERROR_TYPE)
+                        new SweetAlertDialog(AngkaLv3Activity.this, SweetAlertDialog.ERROR_TYPE)
                                 .setTitleText("Hasil")
                                 .setContentText("Internet Anda Bermasalah")
                                 .setConfirmText("OK")

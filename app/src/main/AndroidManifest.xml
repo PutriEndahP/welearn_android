@@ -14,13 +14,14 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Activity.Level0SoalActivity"></activity>
         <activity android:name=".Activity.LevelAngkaActivity" />
+        <activity android:name=".Activity.AngkaLv3Activity"></activity>
+        <activity android:name=".Activity.AngkaLv2Activity" />
         <activity android:name=".Activity.LevelHurufActivity" />
         <activity android:name=".Activity.ProfilActivity" />
         <activity android:name=".Activity.AngkaLv4bActivity" />
         <activity android:name=".Activity.AngkaLv4aActivity" />
         <activity android:name=".Activity.AngkaLv13Activity" />
         <activity android:name=".Activity.AngkaLv12Activity" />
-        <activity android:name=".Activity.AngkaLv0bActivity" />
         <activity android:name=".Activity.AngkaLv0aActivity" />
         <activity android:name=".Activity.CryActivity" />
         <activity android:name=".Activity.BenarActivity" />

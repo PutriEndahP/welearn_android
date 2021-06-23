@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.welearn.R;
+import com.example.welearn.Retrofit.TokenManager;
 import com.williamww.silkysignature.views.SignaturePad;
 
 public class AngkaLv4aActivity extends AppCompatActivity {
@@ -18,6 +19,8 @@ public class AngkaLv4aActivity extends AppCompatActivity {
     TextView levelangka, soalangka, soalnya, samadengan, tambah;
     CardView card_soalangka, card_reset, card_submit, card_soalangka1, card_soalangka2;
     SignaturePad padjawabangka1, padjawabangka2;
+    TokenManager tokenManager;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

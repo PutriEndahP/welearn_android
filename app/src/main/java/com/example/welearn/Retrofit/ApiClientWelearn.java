@@ -36,6 +36,7 @@ public interface ApiClientWelearn {
     Call<ResponsePredict> predict(@Field("img[]") ArrayList<String> image,
                                   @Field("id_soal") String id_soal, @Header("Authorization") String authHeader);
 
+
     @GET("randHuruf/{id}")
     Call<ResponseSoal<ArrayList<ListSoalHuruf>>> getSoalHuruf(@Path("id") String id, @Header("Authorization") String authHeader);
 
@@ -49,4 +50,10 @@ public interface ApiClientWelearn {
 
     @GET("detail")
     Call<ResponseSoal<Profile>> getprofile();
+
+    @FormUrlEncoded
+    @POST("predictangka")
+    Call<ResponsePredict> predictangka(@Field("img[]") ArrayList<String> image,
+                                  @Field("id_soal") String id_soal, @Header("Authorization") String authHeader);
+
 }

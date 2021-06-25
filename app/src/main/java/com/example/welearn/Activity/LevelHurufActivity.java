@@ -26,7 +26,7 @@ import retrofit2.Response;
 
 public class LevelHurufActivity extends AppCompatActivity {
 
-    ImageView icon0, icon1, icon2, icon3, icon4, btn_back;
+    ImageView icon0, icon1, icon2, icon3, btn_back;
     TextView lev0, lev1, lev2, lev3, lev4;
     TokenManager tokenManager;
     ApiClientWelearn api;
@@ -60,6 +60,7 @@ public class LevelHurufActivity extends AppCompatActivity {
                             Intent i = new Intent(LevelHurufActivity.this, Level0SoalActivity.class);
                             Bundle bundle = new Bundle();
                             bundle.putParcelableArrayList("mylist", response.body().getMessage());
+                            bundle.putInt("level", 0);
                             i.putExtras(bundle);
                             startActivity(i);
 
@@ -100,6 +101,7 @@ public class LevelHurufActivity extends AppCompatActivity {
                             Intent i = new Intent(LevelHurufActivity.this, Level0SoalActivity.class);
                             Bundle bundle = new Bundle();
                             bundle.putParcelableArrayList("mylist", response.body().getMessage());
+                            bundle.putInt("level", 1);
                             i.putExtras(bundle);
                             startActivity(i);
 
@@ -116,8 +118,87 @@ public class LevelHurufActivity extends AppCompatActivity {
             }
         });
 
+        icon2 = (ImageView) findViewById(R.id.icon2);
+        icon2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
+                        Context.MODE_PRIVATE));
+//                ApiClientWelearn api = ServerWelearn.createServiceWithAuth(ApiClientWelearn.class, tokenManager);
+                api = ServerWelearn.createService(ApiClientWelearn.class);
+                Call<ResponseSoal<ArrayList<ListSoalHuruf>>> soal = api.getSoalHuruf("2", "Bearer " + tokenManager.getToken());
 
+                soal.enqueue(new Callback<ResponseSoal<ArrayList<ListSoalHuruf>>>() {
+                    @Override
+                    public void onResponse(Call<ResponseSoal<ArrayList<ListSoalHuruf>>> call, Response<ResponseSoal<ArrayList<ListSoalHuruf>>> response) {
+                        if (response.code() == 200) {
+                            Log.e("response get soal", response.body().getMessage().toString());
+//
+//                            Intent i = new Intent(LevelHurufActivity.this, Level0SoalActivity.class);
+//                            i.putExtra("idSoal", );
+//                            startActivity(i);
+
+                            Intent i = new Intent(LevelHurufActivity.this, Level0SoalActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putParcelableArrayList("mylist", response.body().getMessage());
+                            bundle.putInt("level", 2);
+                            i.putExtras(bundle);
+                            startActivity(i);
+
+                        } else {
+                            Log.e("gagal get soal", response.raw().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseSoal<ArrayList<ListSoalHuruf>>> call, Throwable t) {
+                        Log.e("Gagal", t.toString());
+                    }
+                });
+            }
+        });
+
+        icon3 = (ImageView) findViewById(R.id.icon3);
+        icon3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
+                        Context.MODE_PRIVATE));
+//                ApiClientWelearn api = ServerWelearn.createServiceWithAuth(ApiClientWelearn.class, tokenManager);
+                api = ServerWelearn.createService(ApiClientWelearn.class);
+                Call<ResponseSoal<ArrayList<ListSoalHuruf>>> soal = api.getSoalHuruf("3", "Bearer " + tokenManager.getToken());
+
+                soal.enqueue(new Callback<ResponseSoal<ArrayList<ListSoalHuruf>>>() {
+                    @Override
+                    public void onResponse(Call<ResponseSoal<ArrayList<ListSoalHuruf>>> call, Response<ResponseSoal<ArrayList<ListSoalHuruf>>> response) {
+                        if (response.code() == 200) {
+                            Log.e("response get soal", response.body().getMessage().toString());
+//
+//                            Intent i = new Intent(LevelHurufActivity.this, Level0SoalActivity.class);
+//                            i.putExtra("idSoal", );
+//                            startActivity(i);
+
+                            Intent i = new Intent(LevelHurufActivity.this, Level0SoalActivity.class);
+                            Bundle bundle = new Bundle();
+                            bundle.putParcelableArrayList("mylist", response.body().getMessage());
+                            bundle.putInt("level", 3);
+                            i.putExtras(bundle);
+                            startActivity(i);
+
+                        } else {
+                            Log.e("gagal get soal", response.raw().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseSoal<ArrayList<ListSoalHuruf>>> call, Throwable t) {
+                        Log.e("Gagal", t.toString());
+                    }
+                });
+            }
+        });
 
         btn_back = (ImageView) findViewById(R.id.btn_back);
         btn_back.setOnClickListener(new View.OnClickListener() {

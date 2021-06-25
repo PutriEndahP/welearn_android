@@ -38,9 +38,9 @@ public class SoalHurufAdapter extends RecyclerView.Adapter<SoalHurufAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 //
-//        ListSoalHuruf question = mData.get(position);
+        ListSoalHuruf question = mData.get(position);
 //        id = mData.get(getItem(int idSoal))
-//        holder.question.setText("Soal: "+String.valueOf(id+1));
+        holder.question.setText("Soal "+String.valueOf(position+1));
     }
 
     // total number of rows

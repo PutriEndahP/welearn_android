@@ -75,10 +75,6 @@ public class LoginActivity extends AppCompatActivity {
         pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
         pDialog.setTitleText("Loading");
         pDialog.show();
-//        Constans.setNip("05111740000015");
-//        Constans.setNama("kiki");
-//        Constans.setPassword("qwe123");
-//        Constans.setToken("12345678");
 
         ApiClientWelearn api = ServerWelearn.createService(ApiClientWelearn.class);
         Call<AccessToken> login = api.login(username.getText().toString().trim(), password.getText().toString().trim());

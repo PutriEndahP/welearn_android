@@ -15,6 +15,12 @@ public class Profile {
     @SerializedName("jenis_kelamin")
     private String jenis_kelamin;
 
+    @SerializedName("score")
+    private Integer score;
+
+    @SerializedName("angka")
+    private Integer angka;
+
 //    public String getName(){
 //        return name;
 //    }
@@ -27,5 +33,8 @@ public class Profile {
     public String getJenis_kelamin(){
         return jenis_kelamin;
     }
+
+    public Integer getScore() { return score; }
+    public Integer getAngka() { return angka; }
 }
 

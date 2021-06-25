@@ -1,5 +1,6 @@
 package com.example.welearn.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -13,9 +14,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.welearn.R;
 import com.example.welearn.Response.Api.ResponsePredict;
+import com.example.welearn.Response.Api.ResponseType.ListSoalHuruf;
 import com.example.welearn.Retrofit.ApiClientWelearn;
 import com.example.welearn.Retrofit.ServerWelearn;
 import com.example.welearn.Retrofit.TokenManager;
@@ -29,6 +32,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import darren.googlecloudtts.BuildConfig;
+import darren.googlecloudtts.GoogleCloudTTS;
+import darren.googlecloudtts.GoogleCloudTTSFactory;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.CompletableObserver;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -44,20 +54,62 @@ public class HurufLv3Activity extends AppCompatActivity {
     CardView card_soal, mBtnReset, mBtnSend;
     int id;
     TokenManager tokenManager;
+    ApiClientWelearn api;
+
+    private static final String TAG = "HurufLv3Activity";
+    public MainViewModel mMainViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_huruf_lv3);
-        id = getIntent().getIntExtra("id",0);
+//        id = getIntent().getIntExtra("id",0);
+        Bundle extras = getIntent().getExtras();
+        ArrayList<ListSoalHuruf> arraylist = extras.getParcelableArrayList("mylist");
+
+        id = extras.getInt("id");
 
         btn_back = (ImageView)findViewById(R.id.btn_back);
+
+        GoogleCloudTTS googleCloudTTS = GoogleCloudTTSFactory.create(BuildConfig.API_KEY);
+        mMainViewModel = new MainViewModel(getApplication(), googleCloudTTS);
+
         btn_sound = (ImageView)findViewById(R.id.btn_sound);
+        btn_sound = (ImageView)findViewById(R.id.btn_sound);
+        btn_sound.setOnClickListener(e ->{
+            mMainViewModel.speak(arraylist.get(id).getKeterangan())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnSubscribe(t -> initTTSVoice())
+                    .subscribe(new CompletableObserver() {
+                        @Override
+                        public void onSubscribe(@NonNull Disposable d) {
+
+                        }
+
+                        @Override
+                        public void onComplete() {
+                            makeToast("Speak success", false);
+                        }
+
+                        @Override
+                        public void onError(@NonNull Throwable e) {
+                            makeToast("Speak failed " + e.getMessage(), true);
+                            Log.e(TAG, "Speak failed", e);
+                        }
+                    });
+        });
+
         reset = (ImageView)findViewById(R.id.reset);
         send = (ImageView)findViewById(R.id.send);
         title = (TextView)findViewById(R.id.judul_level);
+
         soal = (TextView)findViewById(R.id.soal);
+        soal.setText("Soal ke : "+String.valueOf(id+1));
+
         soalnya = (TextView)findViewById(R.id.soalnya);
+        soalnya.setText(arraylist.get(id).getSoal());
+
         card_soal = (CardView)findViewById(R.id.card_soal);
         mBtnReset = (CardView)findViewById(R.id.button_reset);
         mBtnSend = (CardView)findViewById(R.id.button_send);
@@ -339,7 +391,8 @@ public class HurufLv3Activity extends AppCompatActivity {
                 tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
                         Context.MODE_PRIVATE));
                 ApiClientWelearn api = ServerWelearn.createService(ApiClientWelearn.class);
-                Call<ResponsePredict> upload = api.predict(valueList,"9", "Bearer " + tokenManager.getToken());
+//                Call<ResponsePredict> upload = api.predict(valueList,"9", "Bearer " + tokenManager.getToken());
+                Call<ResponsePredict> upload = api.predict(valueList,String.valueOf(id), "Bearer " + tokenManager.getToken());
 
                 final SweetAlertDialog pDialog = new SweetAlertDialog(HurufLv3Activity.this, SweetAlertDialog.PROGRESS_TYPE);
                 pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
@@ -374,8 +427,9 @@ public class HurufLv3Activity extends AppCompatActivity {
                             mHurufPad7.clear();
                             mHurufPad8.clear();
                             mHurufPad9.clear();
-                            Intent intent = new Intent(HurufLv3Activity.this, HurufLv3Activity.class);
-                            intent.putExtra("id", id);
+                            Intent intent = new Intent(HurufLv3Activity.this, LevelHurufActivity.class);
+//                            intent.putExtra("id", id);
+                            intent.putExtra("id", String.valueOf(id));
                             startActivity(intent);
                         } else {
                             pDialog.dismiss();
@@ -412,5 +466,18 @@ public class HurufLv3Activity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    private void makeToast(String text, boolean longShow) {
+        Toast.makeText(this, text, (longShow) ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show();
+    }
+
+    private void initTTSVoice() {
+        String languageCode = "id-ID";
+        String voiceName = "id-ID-Wavenet-A";
+        float pitch = ((float) (10) / 100);
+        float speakRate = ((float) (100) / 100);
+
+        mMainViewModel.initTTSVoice(languageCode, voiceName, pitch, speakRate);
     }
 }

@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Activity.Level0SoalActivity"></activity>
+        <activity android:name=".Activity.SkorAngkaActivity"></activity>
+        <activity android:name=".Activity.Level0SoalActivity" />
         <activity android:name=".Activity.LevelAngkaActivity" />
-        <activity android:name=".Activity.AngkaLv3Activity"></activity>
+        <activity android:name=".Activity.AngkaLv3Activity" />
         <activity android:name=".Activity.AngkaLv2Activity" />
         <activity android:name=".Activity.LevelHurufActivity" />
         <activity android:name=".Activity.ProfilActivity" />

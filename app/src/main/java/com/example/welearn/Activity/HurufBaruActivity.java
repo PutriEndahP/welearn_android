@@ -74,6 +74,13 @@ public class HurufBaruActivity extends AppCompatActivity {
         id = extras.getInt("id");
 
         btn_back = (ImageView)findViewById(R.id.btn_back);
+//        btn_back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(HurufBaruActivity.this, Level0SoalActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
         GoogleCloudTTS googleCloudTTS = GoogleCloudTTSFactory.create(BuildConfig.API_KEY);
         mMainViewModel = new MainViewModel(getApplication(), googleCloudTTS);
@@ -114,9 +121,9 @@ public class HurufBaruActivity extends AppCompatActivity {
         text_soalke.setText("Soal ke : "+String.valueOf(id+1));
 
 
-//        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
-//                Context.MODE_PRIVATE));
-////                ApiClientWelearn api = ServerWelearn.createServiceWithAuth(ApiClientWelearn.class, tokenManager);
+        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
+                Context.MODE_PRIVATE));
+                ApiClientWelearn api = ServerWelearn.createServiceWithAuth(ApiClientWelearn.class, tokenManager);
 //        api = ServerWelearn.createService(ApiClientWelearn.class);
 //        Call<ResponseSoal<ArrayList<ListSoalHuruf>>> soal = api.getSoalHuruf(arraylist.get(id).getSoal(), "Bearer " + tokenManager.getToken());
 
@@ -211,7 +218,8 @@ public class HurufBaruActivity extends AppCompatActivity {
                 RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), file);
                 MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), reqFile);
 
-                Call<ResponsePredict> upload = api.predict(valueList,"11", "Bearer " + tokenManager.getToken());
+//                Call<ResponsePredict> upload = api.predict(valueList,"11", "Bearer " + tokenManager.getToken());
+                Call<ResponsePredict> upload = api.predict(valueList,String.valueOf(id), "Bearer " + tokenManager.getToken());
 //                Log.e("response", tokenManager.getToken());
 //                Log.e("response", valueList.toArray().toString());
 
@@ -240,8 +248,9 @@ public class HurufBaruActivity extends AppCompatActivity {
                                     }).show();
 
                             mHurufPad.clear();
-                            Intent intent = new Intent(HurufBaruActivity.this, HurufLv1Activity.class);
-                            intent.putExtra("id", id);
+                            Intent intent = new Intent(HurufBaruActivity.this, LevelHurufActivity.class);
+//                            intent.putExtra("id", id);
+                            intent.putExtra("id", String.valueOf(id));
                             startActivity(intent);
                         } else {
                             pDialog.dismiss();

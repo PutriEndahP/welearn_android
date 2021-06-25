@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,6 +41,14 @@ public class ProfilActivity extends AppCompatActivity {
         tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",MODE_PRIVATE));
 
         btn_back = (ImageView)findViewById(R.id.btn_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ProfilActivity.this, MenuBelajarActivity.class);
+                startActivity(i);
+            }
+        });
+
         account = (ImageView)findViewById(R.id.account);
         logoutProfile = (ImageView)findViewById(R.id.logoutProfile);
         title = (TextView)findViewById(R.id.judul_level);
@@ -56,6 +65,7 @@ public class ProfilActivity extends AppCompatActivity {
         });
 
         getProfile();
+//        getHuruf();
 
 //        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs",
 //                Context.MODE_PRIVATE));
@@ -82,6 +92,8 @@ public class ProfilActivity extends AppCompatActivity {
                     username.setText(response.body().getMessage().getUsername());
                     email.setText(response.body().getMessage().getEmail());
                     jenis_kelamin.setText(response.body().getMessage().getJenis_kelamin());
+                    scorehuruf.setText(String.valueOf(response.body().getMessage().getScore()));
+                    textView4.setText(String.valueOf(response.body().getMessage().getAngka()));
                 }
             }
 

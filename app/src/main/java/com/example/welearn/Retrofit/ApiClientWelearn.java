@@ -6,6 +6,9 @@ import com.example.welearn.Response.Api.ResponseSoal;
 import com.example.welearn.Response.Api.ResponseType.ListSoalHuruf;
 import com.example.welearn.Response.Profile.Profile;
 import com.example.welearn.Response.Profile.ResponseProfile;
+import com.example.welearn.Response.Profile.ScoreHurufUser;
+import com.example.welearn.Response.Ranking.RankingAngka;
+import com.example.welearn.Response.Ranking.RankingHuruf;
 
 import java.lang.reflect.Array;
 import java.sql.Date;
@@ -56,4 +59,12 @@ public interface ApiClientWelearn {
     Call<ResponsePredict> predictangka(@Field("img[]") ArrayList<String> image,
                                   @Field("id_soal") String id_soal, @Header("Authorization") String authHeader);
 
+    @GET("scoreHurufUser")
+    Call<ResponseSoal<ScoreHurufUser>> getScoreHurufUser();
+
+    @GET("scoreTHuruf")
+    Call<ResponseSoal<ArrayList<RankingHuruf>>> getRankingHuruf(@Header("Authorization") String authHeader);
+
+    @GET("scoreTAngka")
+    Call<ResponseSoal<ArrayList<RankingAngka>>> getRankingAngka(@Header("Authorization") String authHeader);
 }

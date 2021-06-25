@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.welearn.Activity.Fragment.RankAngkaAdabter;
 import com.example.welearn.Activity.Fragment.RankHurufAdabter;
 import com.example.welearn.R;
 import com.example.welearn.Response.Api.ResponseSoal;
@@ -26,38 +27,30 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SkorActivity extends AppCompatActivity {
+public class SkorAngkaActivity extends AppCompatActivity {
 
-    RankHurufAdabter adapter;
-    ArrayList<RankingHuruf> mData = new ArrayList<>();
-    ArrayList<RankingHuruf> mAngka = new ArrayList<>();
-
+    RankAngkaAdabter adapter;
+    ArrayList<RankingAngka> mAngka = new ArrayList<>();
+    TextView skor_huruf, skor_angka;
     TokenManager tokenManager;
     ApiClientWelearn api;
-
-    TextView skor_huruf, skor_angka;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_skor);
+        setContentView(R.layout.activity_skor_angka);
 
         Bundle bundle = getIntent().getExtras();
-        ArrayList<RankingHuruf> arraylist = bundle.getParcelableArrayList("mylist");
-        ArrayList<RankingHuruf> listarray = bundle.getParcelableArrayList("mylist");
-        mData.addAll(arraylist);
-        mAngka.addAll(listarray);
+        ArrayList<RankingAngka> arraylist = bundle.getParcelableArrayList("mylist");
+        mAngka.addAll(arraylist);
 
         // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.rvRankHuruf);
+        RecyclerView recyclerView = findViewById(R.id.rvRankAngka);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
-        adapter = new RankHurufAdabter(this, arraylist);
-        adapter = new RankHurufAdabter(this, listarray);
+        adapter = new RankAngkaAdabter(this, arraylist);
         recyclerView.setAdapter(adapter);
-
 
         skor_huruf = findViewById(R.id.skor_huruf);
         skor_huruf.setOnClickListener(new View.OnClickListener() {
@@ -71,55 +64,21 @@ public class SkorActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ResponseSoal<ArrayList<RankingHuruf>>> call, Response<ResponseSoal<ArrayList<RankingHuruf>>> response) {
                         if (response.code() == 200) {
-                            Log.e("response get score", response.body().getMessage().toString());
+                            Log.e("response get huruf", response.body().getMessage().toString());
 
-                            Intent i = new Intent(SkorActivity.this, SkorAngkaActivity.class);
+                            Intent i = new Intent(SkorAngkaActivity.this, SkorActivity.class);
                             Bundle bundle = new Bundle();
                             bundle.putParcelableArrayList("mylist", response.body().getMessage());
                             i.putExtras(bundle);
                             startActivity(i);
 
                         } else {
-                            Log.e("gagal get score", response.raw().toString());
+                            Log.e("gagal get huruf", response.raw().toString());
                         }
                     }
 
                     @Override
                     public void onFailure(Call<ResponseSoal<ArrayList<RankingHuruf>>> call, Throwable t) {
-                        Log.e("Gagal", t.toString());
-                    }
-
-                });
-            }
-        });
-
-        skor_angka = findViewById(R.id.skor_angka);
-        skor_angka.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", Context.MODE_PRIVATE));
-                api = ServerWelearn.createService(ApiClientWelearn.class);
-                Call<ResponseSoal<ArrayList<RankingAngka>>> rank = api.getRankingAngka("Bearer " + tokenManager.getToken());
-
-                rank.enqueue(new Callback<ResponseSoal<ArrayList<RankingAngka>>>() {
-                    @Override
-                    public void onResponse(Call<ResponseSoal<ArrayList<RankingAngka>>> call, Response<ResponseSoal<ArrayList<RankingAngka>>> response) {
-                        if (response.code() == 200) {
-                            Log.e("response get angka", response.body().getMessage().toString());
-
-                            Intent i = new Intent(SkorActivity.this, SkorAngkaActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putParcelableArrayList("mylist", response.body().getMessage());
-                            i.putExtras(bundle);
-                            startActivity(i);
-
-                        } else {
-                            Log.e("gagal get angka", response.raw().toString());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ResponseSoal<ArrayList<RankingAngka>>> call, Throwable t) {
                         Log.e("Gagal", t.toString());
                     }
 

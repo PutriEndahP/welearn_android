@@ -48,6 +48,7 @@ public class Level0SoalActivity extends AppCompatActivity implements SoalHurufAd
 
         for(int i=0; i<arraylist.size(); i++){
             Log.e("data", arraylist.get(i).getSoal());
+            Log.e("data", String.valueOf(arraylist.get(i).getIdSoal()));
         }
 
         mData.addAll(arraylist);
@@ -66,7 +67,18 @@ public class Level0SoalActivity extends AppCompatActivity implements SoalHurufAd
     @Override
     public void onItemClick(View view, int position) {
 //        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(Level0SoalActivity.this, HurufBaruActivity.class);
+        int level;
+        Intent intent = new Intent();
+        level = getIntent().getIntExtra("level",0);
+        if (level==0) {
+            intent = new Intent(Level0SoalActivity.this, HurufBaruActivity.class);
+        } else if(level==1) {
+            intent = new Intent(Level0SoalActivity.this, HurufLv1Activity.class);
+        } else if(level==2) {
+            intent = new Intent(Level0SoalActivity.this, HurufLv2Activity.class);
+        } else if(level==3) {
+            intent = new Intent(Level0SoalActivity.this, HurufLv3Activity.class);
+        }
 
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList("mylist", mData);

@@ -71,7 +71,7 @@ public class AngkaLv4bActivity extends AppCompatActivity {
             }
         });
 
-        padjawabangka1 = (SignaturePad) findViewById(R.id.huruf_pad);
+        padjawabangka1 = (SignaturePad) findViewById(R.id.padjawabangka1);
         padjawabangka1.setOnSignedListener(new SignaturePad.OnSignedListener() {
             @Override
             public void onStartSigning() {
@@ -90,7 +90,7 @@ public class AngkaLv4bActivity extends AppCompatActivity {
                 card_reset.setEnabled(false);
             }
         });
-        padjawabangka2 = (SignaturePad) findViewById(R.id.huruf_pad2);
+        padjawabangka2 = (SignaturePad) findViewById(R.id.padjawabangka2);
         padjawabangka2.setOnSignedListener(new SignaturePad.OnSignedListener() {
             @Override
             public void onStartSigning() {
@@ -122,22 +122,22 @@ public class AngkaLv4bActivity extends AppCompatActivity {
             card_submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    File file = new File(getApplicationContext().getCacheDir(), "huruf");
+                    File file = new File(getApplicationContext().getCacheDir(), "angka");
                     try {
                         file.createNewFile();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
 
-                    Bitmap hurufBitmap = padjawabangka1.getSignatureBitmap();
-                    Bitmap hurufBitmap2 = padjawabangka2.getSignatureBitmap();
+                    Bitmap angkaBitmap = padjawabangka1.getTransparentSignatureBitmap();
+                    Bitmap angkaBitmap2 = padjawabangka2.getTransparentSignatureBitmap();
 
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
 
-                    hurufBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                    angkaBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                     byte[] bitmap_data = byteArrayOutputStream.toByteArray();
-                    hurufBitmap2.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream2);
+                    angkaBitmap2.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream2);
                     byte[] bitmap_data2 = byteArrayOutputStream2.toByteArray();
 
                     FileOutputStream fos = null;

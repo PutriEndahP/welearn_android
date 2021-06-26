@@ -94,17 +94,17 @@ public class AngkaLv13Activity extends AppCompatActivity {
         card_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                File file = new File(getApplicationContext().getCacheDir(), "huruf");
+                File file = new File(getApplicationContext().getCacheDir(), "angka");
                 try {
                     file.createNewFile();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                Bitmap hurufBitmap = padjawabangka1.getSignatureBitmap();
+                Bitmap angkaBitmap = padjawabangka1.getTransparentSignatureBitmap();
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
-                hurufBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                angkaBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                 byte[] bitmap_data = byteArrayOutputStream.toByteArray();
 
                 FileOutputStream fos = null;

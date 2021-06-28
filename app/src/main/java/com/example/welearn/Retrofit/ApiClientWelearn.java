@@ -67,4 +67,6 @@ public interface ApiClientWelearn {
 
     @GET("scoreTAngka")
     Call<ResponseSoal<ArrayList<RankingAngka>>> getRankingAngka(@Header("Authorization") String authHeader);
+
+
 }

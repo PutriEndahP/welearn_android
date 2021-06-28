@@ -60,7 +60,7 @@ public class HurufBaruActivity extends AppCompatActivity {
     private static final String TAG = "HurufBaruActivity";
     public MainViewModel mMainViewModel;
 
-    int id;
+    int id, id_soal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +117,7 @@ public class HurufBaruActivity extends AppCompatActivity {
         text_soalke = (TextView)findViewById(R.id.soal);
         text_soalnya = (TextView)findViewById(R.id.soalnya);
         text_soalnya.setText(arraylist.get(id).getSoal());
+        id_soal = arraylist.get(id).getIdSoal();
 
         text_soalke.setText("Soal ke : "+String.valueOf(id+1));
 
@@ -219,7 +220,7 @@ public class HurufBaruActivity extends AppCompatActivity {
                 MultipartBody.Part body = MultipartBody.Part.createFormData("image", file.getName(), reqFile);
 
 //                Call<ResponsePredict> upload = api.predict(valueList,"11", "Bearer " + tokenManager.getToken());
-                Call<ResponsePredict> upload = api.predict(valueList,String.valueOf(id), "Bearer " + tokenManager.getToken());
+                Call<ResponsePredict> upload = api.predict(valueList,String.valueOf(id_soal), "Bearer " + tokenManager.getToken());
 //                Log.e("response", tokenManager.getToken());
 //                Log.e("response", valueList.toArray().toString());
 
@@ -250,7 +251,8 @@ public class HurufBaruActivity extends AppCompatActivity {
                             mHurufPad.clear();
                             Intent intent = new Intent(HurufBaruActivity.this, LevelHurufActivity.class);
 //                            intent.putExtra("id", id);
-                            intent.putExtra("id", String.valueOf(id));
+//                            intent.putExtra("id", String.valueOf(id));
+                            intent.putExtra("id", String.valueOf(id_soal));
                             startActivity(intent);
                         } else {
                             pDialog.dismiss();

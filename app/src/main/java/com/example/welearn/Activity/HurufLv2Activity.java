@@ -53,7 +53,7 @@ public class HurufLv2Activity extends AppCompatActivity {
     TextView title, soal, soalnya;
     CardView card_soal, mBtnReset, mBtnSend;
     SignaturePad mHurufPad, mHurufPad2, mHurufPad3, mHurufPad4, mHurufPad5;
-    int id;
+    int id, id_soal;
     TokenManager tokenManager;
     ApiClientWelearn api;
 
@@ -109,6 +109,7 @@ public class HurufLv2Activity extends AppCompatActivity {
 
         soalnya = (TextView)findViewById(R.id.soalnya);
         soalnya.setText(arraylist.get(id).getSoal());
+        id_soal = arraylist.get(id).getIdSoal();
 
         card_soal = (CardView)findViewById(R.id.card_soal);
         mBtnReset = (CardView)findViewById(R.id.button_reset);
@@ -296,7 +297,7 @@ public class HurufLv2Activity extends AppCompatActivity {
                         Context.MODE_PRIVATE));
                 ApiClientWelearn api = ServerWelearn.createService(ApiClientWelearn.class);
 //                Call<ResponsePredict> upload = api.predict(valueList,"9", "Bearer " + tokenManager.getToken());
-                Call<ResponsePredict> upload = api.predict(valueList,String.valueOf(id), "Bearer " + tokenManager.getToken());
+                Call<ResponsePredict> upload = api.predict(valueList,String.valueOf(id_soal), "Bearer " + tokenManager.getToken());
 
                 final SweetAlertDialog pDialog = new SweetAlertDialog(HurufLv2Activity.this, SweetAlertDialog.PROGRESS_TYPE);
                 pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
@@ -329,7 +330,8 @@ public class HurufLv2Activity extends AppCompatActivity {
                             mHurufPad5.clear();
                             Intent intent = new Intent(HurufLv2Activity.this, LevelHurufActivity.class);
 //                            intent.putExtra("id", id);
-                            intent.putExtra("id", String.valueOf(id));
+//                            intent.putExtra("id", String.valueOf(id));
+                            intent.putExtra("id", String.valueOf(id_soal));
                             startActivity(intent);
                         } else {
                             pDialog.dismiss();

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Activity.SkorAngkaActivity"></activity>
+        <activity android:name=".Activity.BankSoalAngkaActivity"></activity>
+        <activity android:name=".Activity.SkorAngkaActivity" />
         <activity android:name=".Activity.Level0SoalActivity" />
         <activity android:name=".Activity.LevelAngkaActivity" />
         <activity android:name=".Activity.AngkaLv3Activity" />

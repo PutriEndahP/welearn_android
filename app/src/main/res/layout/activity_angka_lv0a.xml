@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/level"
+        android:text="Level ke 0"
         android:textColor="@color/tosca"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -78,7 +78,7 @@
             android:gravity="center"
             android:text="@string/soalhuruf"
             android:textColor="@color/colorAngka"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"></TextView>
     </androidx.cardview.widget.CardView>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -109,7 +109,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></androidx.cardview.widget.CardView>
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/isi_soal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/string_angka"
+                android:textColor="@color/colorAngka"
+                android:textSize="80sp"
+                android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/samadengan"

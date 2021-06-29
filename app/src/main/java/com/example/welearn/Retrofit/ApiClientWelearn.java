@@ -43,6 +43,9 @@ public interface ApiClientWelearn {
     @GET("randHuruf/{id}")
     Call<ResponseSoal<ArrayList<ListSoalHuruf>>> getSoalHuruf(@Path("id") String id, @Header("Authorization") String authHeader);
 
+    @GET("randAngka/{id}")
+    Call<ResponseSoal<ArrayList<ListSoalHuruf>>> getSoalAngka(@Path("id") String id, @Header("Authorization") String authHeader);
+
     @FormUrlEncoded
     @POST("register")
     Call<AccessToken> register(@Field("email") String email,
@@ -67,6 +70,5 @@ public interface ApiClientWelearn {
 
     @GET("scoreTAngka")
     Call<ResponseSoal<ArrayList<RankingAngka>>> getRankingAngka(@Header("Authorization") String authHeader);
-
 
 }

@@ -104,15 +104,15 @@ public class AngkaLv0aActivity extends AppCompatActivity {
         submit = (ImageView) findViewById(R.id.submit);
         levelangka = (TextView) findViewById(R.id.levelangka);
         soalangka = (TextView) findViewById(R.id.soalangka);
+
         soalangka.setText("Soal ke : "+String.valueOf(id+1));
 
         soalnya = (TextView) findViewById(R.id.soalnya);
+
         soalnya.setText(arraylist.get(id).getKeterangan());
         id_soal = arraylist.get(id).getIdSoal();
-
         isi_soal = (TextView) findViewById(R.id.isi_soal);
         isi_soal.setText(arraylist.get(id).getSoal());
-
 
         samadengan = (TextView) findViewById(R.id.samadengan);
         card_soalangka = (CardView) findViewById(R.id.card_soalangka);

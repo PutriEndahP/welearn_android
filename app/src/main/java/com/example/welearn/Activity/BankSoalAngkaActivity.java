@@ -73,13 +73,13 @@ public class BankSoalAngkaActivity extends AppCompatActivity implements SoalAngk
         if (level==0) {
             intent = new Intent(BankSoalAngkaActivity.this, AngkaLv0aActivity.class);
         } else if(level==1) {
-            intent = new Intent(BankSoalAngkaActivity.this, HurufLv1Activity.class);
+            intent = new Intent(BankSoalAngkaActivity.this, AngkaLv12Activity.class);
         } else if(level==2) {
-            intent = new Intent(BankSoalAngkaActivity.this, HurufLv2Activity.class);
+            intent = new Intent(BankSoalAngkaActivity.this, AngkaLv2Activity.class);
         } else if(level==3) {
-            intent = new Intent(BankSoalAngkaActivity.this, HurufLv3Activity.class);
+            intent = new Intent(BankSoalAngkaActivity.this, AngkaLv3Activity.class);
         } else if(level==4) {
-            intent = new Intent(BankSoalAngkaActivity.this, HurufLv3Activity.class);
+            intent = new Intent(BankSoalAngkaActivity.this, AngkaLv4aActivity.class);
         }
 
         Bundle bundle = new Bundle();

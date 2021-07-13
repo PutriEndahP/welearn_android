@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.MenuBelajarActivity"
-    android:background="@drawable/fix">
+    android:background="@drawable/bg_menu_belajar">
 <!--    android:background="@color/colorBG">-->
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="413dp"
-        android:layout_height="182dp"
+        android:layout_height="200dp"
         android:scaleType="centerCrop"
         tools:ignore="MissingConstraints">
 
@@ -33,8 +33,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></TextView>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"></TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,17 +51,17 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/btn_huruf"
         android:layout_width="340dp"
-        android:layout_height="wrap_content"
+        android:layout_height="140dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         app:cardBackgroundColor="@color/colorPrimary"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.306">
+        app:layout_constraintVertical_bias="0.414">
 
         <ImageView
             android:layout_width="90dp"
@@ -96,17 +98,15 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/btn_angka"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
+        android:layout_width="342dp"
+        android:layout_height="140dp"
         android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
         app:cardBackgroundColor="@color/tosca"
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_huruf"
         tools:ignore="NotSibling">
@@ -141,53 +141,6 @@
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btn_aksara"
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        app:cardBackgroundColor="@color/coklat"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_angka">
-
-        <ImageView
-            android:layout_width="90dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/gunungan"></ImageView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:layout_marginBottom="30dp"
-            android:gravity="left"
-            android:paddingLeft="100dp"
-            android:text="Belajar Aksara Jawa"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="249dp"
-            android:layout_height="49dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp"
-            android:gravity="left"
-            android:paddingLeft="95dp"
-            app:srcCompat="@drawable/aksara_jawa" />
 
     </androidx.cardview.widget.CardView>
 

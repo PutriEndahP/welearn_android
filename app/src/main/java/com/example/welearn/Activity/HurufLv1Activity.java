@@ -257,7 +257,7 @@ public class HurufLv1Activity extends AppCompatActivity {
                             pDialog.dismiss();
                             new SweetAlertDialog(HurufLv1Activity.this, SweetAlertDialog.SUCCESS_TYPE)
                                     .setTitleText(response.body().getMessage())
-                                    .setContentText("Berhasil Dikonfirmasi")
+                                    .setContentText("Jawaban Berhasil Disimpan")
                                     .setConfirmText("OK")
                                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                         @Override

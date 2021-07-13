@@ -206,7 +206,7 @@ public class AngkaLv3Activity extends AppCompatActivity {
                             pDialog.dismiss();
                             new SweetAlertDialog(AngkaLv3Activity.this, SweetAlertDialog.SUCCESS_TYPE)
                                     .setTitleText(response.body().getMessage())
-                                    .setContentText("Berhasil Dikonfirmasi")
+                                    .setContentText("Jawaban Berhasil Disimpan")
                                     .setConfirmText("OK")
                                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                         @Override
@@ -217,7 +217,7 @@ public class AngkaLv3Activity extends AppCompatActivity {
                                     }).show();
 
                             padjawabangka1.clear();
-                            Intent intent = new Intent(AngkaLv3Activity.this, AngkaLv4aActivity.class); //coba coba
+                            Intent intent = new Intent(AngkaLv3Activity.this, LevelAngkaActivity.class); //coba coba
 //                            intent.putExtra("id", id);
 
                             intent.putExtra("id", String.valueOf(id_soal));

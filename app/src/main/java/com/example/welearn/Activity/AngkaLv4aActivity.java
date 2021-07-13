@@ -240,7 +240,7 @@ public class AngkaLv4aActivity extends AppCompatActivity {
                                 pDialog.dismiss();
                                 new SweetAlertDialog(AngkaLv4aActivity.this, SweetAlertDialog.SUCCESS_TYPE)
                                         .setTitleText(response.body().getMessage())
-                                        .setContentText("Berhasil Dikonfirmasi")
+                                        .setContentText("Jawaban Berhasil Disimpan")
                                         .setConfirmText("OK")
                                         .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                             @Override

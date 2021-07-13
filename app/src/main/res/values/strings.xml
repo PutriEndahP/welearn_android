@@ -15,6 +15,7 @@
     <string name="logout">Logout</string>
     <string name="level">Level ke :</string>
     <string name="soal">Soal ke</string>
+    <string name="soallevel">Soal</string>
     <string name="soalhuruf">soalnya</string>
     <string name="reset"></string>
     <string name="button_volume_desc"></string>
